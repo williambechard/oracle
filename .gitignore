@@ -33,3 +33,6 @@ frontend/android/app/build/
 
 # Ignore other sensitive files or directories
 *.secret
+
+# Ignore IDE and editor specific files
+.idea/
