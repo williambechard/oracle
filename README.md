@@ -65,5 +65,18 @@ Follow these steps to get the application up and running:
    docker-compose down
    ```
 
+## Android
+
+### Prerequisites
+- **Android Studio**:  [Install Android Studio](https://developer.android.com/studio)
+- **Java SDK 21**: [Install Java SDK 21](https://www.oracle.com/java/technologies/downloads/#jdk21-windows)
 
 
+### Build Android App
+```bash
+    cd frontend && npx cap build android
+```
+### Run Android App in Android Studio Emulator
+```bash
+    cd frontend && npx cap run android
+```
