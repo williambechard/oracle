@@ -6,6 +6,10 @@ frontend/.env
 # Ignore Python virtual environment
 venv/
 
+# Ignore Python cache files
+__pycache__/
+backend/__pycache__/
+
 # Ignore Docker build cache and other temporary files
 *.log
 docker-compose.override.yml
