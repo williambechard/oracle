@@ -1,0 +1,7 @@
+{
+  "name": "oracle",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
