@@ -1,5 +1,7 @@
 # Ignore environment files
 .env
+backend/.env
+frontend/.env
 
 # Ignore Python virtual environment
 venv/
@@ -9,6 +11,21 @@ venv/
 docker-compose.override.yml
 .docker/
 
+# Ignore Node.js modules and build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/tmp/
+
+# Ignore IDE and editor specific files
+frontend/.vscode/
+frontend/.angular/
+frontend/.idea/
+
+# Ignore generated build files (but keep ios and android folders)
+frontend/ios/Pods/
+frontend/ios/build/
+frontend/android/.gradle/
+frontend/android/app/build/
+
 # Ignore other sensitive files or directories
-*.env
 *.secret
