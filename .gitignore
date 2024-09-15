@@ -1,0 +1,14 @@
+# Ignore environment files
+.env
+
+# Ignore Python virtual environment
+venv/
+
+# Ignore Docker build cache and other temporary files
+*.log
+docker-compose.override.yml
+.docker/
+
+# Ignore other sensitive files or directories
+*.env
+*.secret
