@@ -1,0 +1,147 @@
+
+.full-height{
+  height: 100vh; /* Ensure it takes full viewport height */
+  overflow: hidden; /* Prevent overflow */
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.button-area{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+  gap:1rem;
+}
+
+.inner-content-middle{
+  text-align: center;
+  padding: 1rem;
+  overflow: auto; /* Allow inner content to scroll if it exceeds height */
+  max-height: 40vh; /* Limit inner content height */
+}
+
+.inner-content-bottom{
+  text-align: center;
+  padding: 1rem;
+  overflow: auto; /* Allow inner content to scroll if it exceeds height */
+  max-height: 40vh; /* Limit inner content height */
+}
+
+.inner-content-top{
+  text-align: center;
+  padding: 1rem;
+  overflow: auto; /* Allow inner content to scroll if it exceeds height */
+  max-height: 40vh; /* Limit inner content height */
+}
+
+.background-strip{
+  background-color:var(--color-background-base-default);
+  position: relative; /* Allows positioning */
+  left:0;
+  right:0;
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card{
+  position: relative; /* Position relative for z-index control if needed */
+  z-index: 1; /* Ensure card is above the background strip */
+  max-width:40rem;
+}
+
+.login-icon-area {
+  width: 100%;
+  display:flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  padding:2rem;
+}
+
+rux-input::part(form-field) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+rux-input::part(label) {
+  margin-right: var(--spacing-2);
+  margin-bottom: 0 !important;
+  width: 100px; /* Set a fixed width for the label */
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+rux-input {
+  padding: 1rem;
+  flex-grow: 1; /* Allow input to grow and fill available space */
+}
+:host ::ng-deep {
+
+  .button-outline button{
+    background-color:transparent!important;
+  }
+
+  .logo img{
+    max-width:20rem!important;
+    max-height: 20rem!important;
+    min-width:10rem!important;
+    min-height: 10rem!important;
+    width:75%!important;
+  }
+
+  @media (max-width: 600px) {
+    .logo img {
+      padding: 2.5rem !important;
+    }
+  }
+
+  @media (min-width: 601px) {
+    .logo img {
+      padding: unset !important;
+    }
+  }
+
+  p-image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    max-height:20vh;
+  }
+
+  ion-card{
+    margin:unset!important;
+  }
+ion-item{
+
+}
+  .login-icon-area span {
+    font-size:5rem !important;
+    background-color:var(--color-background-base-default);
+    border-radius:50%;
+    color: var(--color-background-interactive-default);
+  }
+
+  .login-icon-area span:hover{
+    color: var(--color-background-interactive-hover)!important;
+  }
+
+  button{
+    width:100%!important;
+    height:100%!important;
+  }
+
+  .p-button-component {
+    width:100%!important;
+    height:100%!important;
+  }
+}
+

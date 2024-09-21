@@ -71,6 +71,10 @@ Follow these steps to get the application up and running:
 - **Android Studio**:  [Install Android Studio](https://developer.android.com/studio)
 - **Java SDK 21**: [Install Java SDK 21](https://www.oracle.com/java/technologies/downloads/#jdk21-windows)
 
+### Reminder you need to have the Docker up and running, so if you havn't already, run the below
+```bash
+    docker-compose up
+```
 
 ### Build Android App
 ```bash

@@ -1,0 +1,38 @@
+<div class="background-image full-height">
+        <div class="content">
+          <div style="width:100%">
+            <div style="padding-top:2rem; padding-bottom:2rem" class="inner-content-top">
+              <p-image src="assets/logos/OracleLogo.png" class="logo"></p-image>
+            </div>
+              <div class="background-strip">
+                <ion-card class="login-card inner-content-middle">
+                  <ion-card-header>
+                    <ion-card-title style="letter-spacing:.35rem!important; color:grey!important; font-size:1.25rem!important; font-family:Sharp Sans">UNITED STATES</ion-card-title>
+                    <ion-card-title style="letter-spacing:.5rem!important; color:grey!important; font-size:3rem!important; font-family:Sharp Sans" >SPACE FORCE</ion-card-title>
+                    <ion-card-title style="font-size:3rem!important; font-family: sans-serif; font-weight: bolder">ORACLE</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <rux-input   label="EMAIL" error-text="" type="text" size="medium"></rux-input>
+                    <rux-input label="API Key" error-text="" type="text" size="medium"></rux-input>
+                    <!--ion-item>
+                      <ion-label   position="floating">Email</ion-label>
+                      <ion-input type="text" [(ngModel)]="email"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label  position="floating">API Key</ion-label>
+                      <ion-input type="password" [(ngModel)]="apiKey"></ion-input>
+                    </ion-item-->
+
+                    <div class="button-area">
+                      <rux-button style="flex-grow:1; width:100%" [size]="'large'" secondary="" (click)="login()">Register</rux-button>
+                      <rux-button style="flex-grow:1; width:100%" [size]="'large'"   (click)="login()">Login</rux-button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </div>
+          <div class="login-icon-area inner-content-bottom">
+            <p-button  icon="pi pi-question-circle"  [rounded]="true" [outlined]="true" />
+          </div>
+        </div>
+</div>
