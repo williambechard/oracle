@@ -24,6 +24,23 @@ except Exception as e:
     logging.error("Failed to initialize Ask Sage client: %s", str(e))
     client = None  # Ensure client is defined to handle the route properly
 
+@app.route('/login', methods=['POST'])
+def login():
+    try:
+        data = request.json
+        email = data.get("email")
+        password = data.get("api")
+        if not email or not password:
+            return jsonify({"error": "Email and password are required"}), 400
+
+        # Login to the Ask Sage API
+        response = client.login(email=email, password=password)
+        return jsonify(response)
+    except Exception as e:
+        logging.error("Error during login: %s", str(e))
+        return jsonify({"error": str(e)}), 500
+
+
 # Flask route to handle the API request
 @app.route('/ask', methods=['POST'])
 def ask():
