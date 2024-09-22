@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app": {
+    "oracle": {
       "projectType": "application",
       "schematics": {
         "@ionic/angular-toolkit:page": {
@@ -31,7 +31,7 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": ["src/global.scss", "src/theme/variables.scss","node_modules/primeng/resources/themes/saga-blue/theme.css","node_modules/primeng/resources/primeng.min.css"],
             "scripts": []
           },
           "configurations": {
@@ -72,12 +72,17 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "oracle:build",
+            "host": "0.0.0.0",
+            "port": 4200
+          },
           "configurations": {
             "production": {
-              "buildTarget": "app:build:production"
+              "buildTarget": "oracle:build:production"
             },
             "development": {
-              "buildTarget": "app:build:development"
+              "buildTarget": "oracle:build:development"
             },
             "ci": {
               "progress": false
@@ -88,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "app:build"
+            "buildTarget": "oracle:build"
           }
         },
         "test": {
@@ -106,7 +111,12 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": [
+              "src/global.scss",
+              "src/theme/variables.scss",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -114,12 +124,6 @@
               "progress": false,
               "watch": false
             }
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }

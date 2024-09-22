@@ -8,19 +8,16 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install dependencies and clean up
-RUN pip install --no-cache-dir -r requirements.txt && \
-    rm -rf /root/.cache
-
-
 # Copy the rest of the application code
 COPY . .
 
 # Expose port 5000
 EXPOSE 5000
 
-# Define environment variable
+# Define environment variables
 ENV FLASK_APP=app.py
+ENV FLASK_ENV=development
+ENV FLASK_DEBUG=1
 
-# Run the Flask app
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Run the Flask app with live reloading
+CMD ["flask", "run", "--host=0.0.0.0", "--reload"]

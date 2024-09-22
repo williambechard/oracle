@@ -1,0 +1,50 @@
+<ion-header *ngIf="isLoading">
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+</ion-header>
+<div class="background-image full-height">
+        <div class="content">
+          <div class="top-outer">
+            <div style="padding-top:2rem; padding-bottom:2rem" class="inner-content-top">
+              <p-image src="assets/logos/OracleLogo.png" class="logo"></p-image>
+            </div>
+              <div class="background-strip">
+                <ion-card class="login-card inner-content-middle">
+                  <ion-card-header>
+                    <ion-card-title class="single-line" style="letter-spacing:.35rem!important; color:grey!important; font-size:1rem!important; font-family:Sharp Sans, Trebuchet,serif">UNITED STATES</ion-card-title>
+                    <ion-card-title class="single-line" style="letter-spacing:.5rem!important; color:grey!important; font-size:2rem!important; font-family:Sharp Sans, Trebuche, serif">SPACE FORCE</ion-card-title>
+                    <ion-card-title class="single-line" style="font-size:2rem!important; font-family: sans-serif; font-weight: bolder; color:var(--color-text-primary)">ORACLE</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <rux-input 
+                      label="EMAIL" 
+                      error-text="" 
+                      type="text" 
+                      size="medium" 
+                      [(ngModel)]="email"
+                      (ngModelChange)="clearErrorMessage()">
+                    </rux-input>
+                    <rux-input 
+                      label="API Key" 
+                      [type]="'password'" 
+                      size="medium" 
+                      [(ngModel)]="apiKey"
+                      (ngModelChange)="clearErrorMessage()">
+                    </rux-input>
+                    <div class="message-area" [ngClass]="{'hidden': !isLoading && !errorMessage}">
+                      <div *ngIf="errorMessage && !isLoading" class="error-message">
+                        {{ errorMessage }}
+                      </div>
+                    </div>
+                    <div class="button-area">
+                      <rux-button style="flex-grow:1; width:100%" [size]="'large'" secondary="" (click)="register()">Register</rux-button>
+                      <rux-button style="flex-grow:1; width:100%" [size]="'large'" (click)="login()" [disabled]="!email || !apiKey || isLoading">Login</rux-button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+          </div>
+          <div class="login-icon-area inner-content-bottom">
+            <p-button  icon="pi pi-question-circle"  [rounded]="true" [outlined]="true" />
+          </div>
+        </div>
+</div>

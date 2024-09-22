@@ -5,10 +5,12 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --project=oracle --host=0.0.0.0 --disable-host-check --poll=2000",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "android": "ionic capacitor run android -l --external",
+    "build-android":  "ionic capacitor build android",
     "lint": "ng lint"
   },
   "private": true,
@@ -21,6 +23,8 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@astrouxds/angular": "^7.22.1",
+    "@astrouxds/tokens": "^1.12.0",
     "@capacitor/android": "6.1.2",
     "@capacitor/app": "6.0.1",
     "@capacitor/core": "6.1.2",
@@ -30,6 +34,8 @@
     "@capacitor/status-bar": "6.0.1",
     "@ionic/angular": "^8.0.0",
     "ionicons": "^7.2.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^17.18.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

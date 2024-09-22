@@ -5,10 +5,20 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: development
     ports:
-      - "80:80"
+      - "4200:4200"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
     networks:
       - app-network
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   backend:
     build:
@@ -18,13 +28,23 @@ services:
       - "5000:5000"
     environment:
       - FLASK_ENV=development
+      - FLASK_DEBUG=1
     env_file:
       - ./backend/.env
+    volumes:
+      - ./backend:/app
     depends_on:
       - frontend
     networks:
       - app-network
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  node_modules:
