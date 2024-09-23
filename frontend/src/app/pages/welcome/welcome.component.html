@@ -29,7 +29,8 @@
         </div>
         <div class="button-area">
           <rux-button style="flex-grow:1; width:100%" [size]="'large'" secondary="" (click)="moreInfo()">More Information</rux-button>
-          <rux-button style="flex-grow:1; width:100%" [size]="'large'" (click)="continue()">Continue</rux-button>
+          <rux-button *ngIf="isLoggedIn" style="flex-grow:1; width:100%" [size]="'large'" (click)="continue()">Continue</rux-button>
+          <rux-button *ngIf="!isLoggedIn" style="flex-grow:1; width:100%" [size]="'large'" (click)="back()">Back</rux-button>
         </div>
       </div>
     </div>
