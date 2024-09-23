@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
   }
 
   info() {
-    // Implement info logic
+    this.router.navigate(['/welcome']);
   }
 
   clearErrorMessage() {
