@@ -1,25 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { UserAuthService } from '../../services/user-auth.service';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { AstroComponentsModule } from "@astrouxds/angular";
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss']
+  styleUrls: ['./welcome.component.scss'],
+  standalone: true,
+  imports: [CommonModule, AstroComponentsModule, IonicModule]
 })
-export class WelcomeComponent implements OnInit {
-  constructor(private userAuthService: UserAuthService, private router: Router) {}
+export class WelcomeComponent {
+  constructor(private router: Router) {}
+ 
 
-  ngOnInit() {
-    this.userAuthService.isLoggedIn$.subscribe(isLoggedIn => {
-      if (!isLoggedIn) {
-        this.router.navigate(['/login']);
-      }
-    });
+  continue() {
+    this.router.navigate(['/chat']);
   }
 
-  logout() {
-    this.userAuthService.logout();
-    this.router.navigate(['/login']);
+
+
+  moreInfo() {
+    window.open('https://www.asksage.ai/', '_blank');
   }
+
 }
