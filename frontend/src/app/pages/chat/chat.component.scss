@@ -39,6 +39,7 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width:60rem;
   }
   
   .scrollable-content{
@@ -68,3 +69,39 @@
       padding: 1rem;
       gap:1rem;
     }
+  
+  .bottom-area {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-background-surface-default);
+    border-top: 1px solid var(--color-background-base-default);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .bottom-area ::ng-deep span {
+    font-size: 2rem;
+  }
+
+  rux-input {
+    flex-grow: 1;
+    margin: 0 1rem;
+  }
+
+  p-button {
+    flex-shrink: 0;
+  }
+
+  .chat-content {
+    padding-bottom: 70px; // Adjust this value based on the height of your bottom-area
+  }
+
+  .scrollable-chat {
+    height: calc(100vh - 70px); // Adjust 70px based on the height of your bottom-area
+    overflow-y: auto;
+  }
+
+ 
