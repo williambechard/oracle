@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: 'oracle',
   webDir: 'www',
   "server": {
-    "url": "http://10.0.2.2:80",
+    "url": "http://10.0.2.2:5000",
     "cleartext": true
   }
 };
