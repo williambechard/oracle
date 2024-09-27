@@ -1,0 +1,14 @@
+<div class="chat-box-container">
+  <div class="icon-area">
+    <p-image
+      [src]="isUser ? 'assets/logos/person.svg' : 'assets/logos/OracleLogo.svg'"
+      alt="chat-icon"
+    />
+  </div>
+  <ion-card class="chat-box">
+    <ion-card-content>
+      <div class="message">{{message}}</div>
+    </ion-card-content>
+  </ion-card>
+</div>
+

@@ -5,6 +5,7 @@ import { IonicModule } from "@ionic/angular";
 import { FormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
 import { AstroComponentsModule } from "@astrouxds/angular";
+import {ChatBoxComponent} from "../../components/chat-box/chat-box.component";
 
 @Component({
   selector: 'app-chat',
@@ -17,6 +18,7 @@ import { AstroComponentsModule } from "@astrouxds/angular";
     FormsModule,
     ButtonModule,
     AstroComponentsModule,
+    ChatBoxComponent,
   ],
   standalone: true
 })
