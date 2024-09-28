@@ -1,20 +1,46 @@
 .content {
     width: 100%;
-    max-width: 60rem;
+    max-width: 100rem;
+    height:100vh;
+    padding-bottom: 8rem;
+    gap:1rem;
+    overflow-y:auto;
   }
-  
+
+  //style the scroll bar so the gutter isnt visible
+  /* width */
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    visibility:hidden;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-background-surface-default);
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-background-surface-hover);
+  }
+
   .center-content{
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .header-area{
       background-color: var(--color-background-surface-header);
       width:100%;
       border-radius: 1rem 1rem 0 0;
   }
-  
+
   .welcome-container {
     display: flex;
     flex-direction: column;
@@ -22,13 +48,13 @@
     justify-content: center;
     height: 100vh;
   }
-  
+
   .content-area{
       padding:1rem;
       max-height: 74vh;
       overflow-y: auto;
   }
-  
+
   .welcome-card {
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.75);
     background-color: var(--color-background-base-default);
@@ -39,19 +65,25 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width:60rem;
   }
-  
+
   .scrollable-content{
     overflow: auto;
     font-size: 1.25rem;
   }
-  
+
+.scrollable-chat {
+  max-height: 80vh; /* Adjust this value as needed */
+  overflow-y: auto;
+}
+
   .disclaimer{
     font-size: 1rem;
     font-style: italic;
     color: var(--color-text-secondary);
   }
-  
+
   .header-area{
       background-color: var(--color-background-surface-header);
       text-align: center;
@@ -59,7 +91,7 @@
       font-size: 1.5rem;
       font-weight: bold;
   }
-  
+
   .button-area{
       display:flex;
       flex-direction:row;
@@ -68,3 +100,45 @@
       padding: 1rem;
       gap:1rem;
     }
+
+  .bottom-area {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-background-surface-default);
+    border-top: 1px solid var(--color-background-base-default);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index:2;
+  }
+
+  .bottom-area ::ng-deep span {
+    font-size: 2rem;
+  }
+
+
+ .chat-box-container{
+
+  }
+
+  rux-input {
+    flex-grow: 1;
+    margin: 0 1rem;
+  }
+
+  p-button {
+    flex-shrink: 0;
+  }
+
+  .chat-content {
+    padding-bottom: 70px; // Adjust this value based on the height of your bottom-area
+  }
+
+  .scrollable-chat {
+    height: calc(100vh - 70px); // Adjust 70px based on the height of your bottom-area
+    overflow-y: auto;
+  }
+
+

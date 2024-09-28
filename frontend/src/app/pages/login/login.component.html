@@ -15,18 +15,19 @@
                     <ion-card-title class="single-line" style="font-size:2rem!important; font-family: sans-serif; font-weight: bolder; color:var(--color-text-primary)">ORACLE</ion-card-title>
                   </ion-card-header>
                   <ion-card-content>
-                    <rux-input 
-                      label="EMAIL" 
-                      error-text="" 
-                      type="text" 
-                      size="medium" 
+                    <rux-input
+                      label="EMAIL"
+                      [type]="'text'"
+                      size="medium"
                       [(ngModel)]="email"
-                      (ngModelChange)="clearErrorMessage()">
+                      (ngModelChange)="clearErrorMessage()"
+                      (focus)="onFocus($event)"
+                    >
                     </rux-input>
-                    <rux-input 
-                      label="API Key" 
-                      [type]="'password'" 
-                      size="medium" 
+                    <rux-input
+                      label="API Key"
+                      [type]="'password'"
+                      size="medium"
                       [(ngModel)]="apiKey"
                       (ngModelChange)="clearErrorMessage()">
                     </rux-input>
@@ -43,7 +44,7 @@
                 </ion-card>
               </div>
           </div>
-          <div class="login-icon-area inner-content-bottom">
+          <div *ngIf="!keyboardVisible" class="login-icon-area inner-content-bottom">
             <p-button  icon="pi pi-question-circle"  [rounded]="true" [outlined]="true" (click)="info()"/>
           </div>
         </div>

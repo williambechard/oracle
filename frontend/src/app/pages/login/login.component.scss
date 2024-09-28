@@ -54,8 +54,8 @@
 }
 
 .background-strip{
-  max-height:60%;
-  flex-grow:1;
+
+  flex-grow:0;
   width:100%;
   background-color: var(--color-background-base-default);
   position: relative; /* Allows positioning */
@@ -108,9 +108,9 @@ rux-input {
   .logo img{
     max-width:20rem!important;
     max-height: 20rem!important;
-    min-width:10rem!important;
-    min-height: 10rem!important;
-    width:75%!important;
+    min-width:2rem!important;
+    min-height: 2rem!important;
+    height:14vh!important;
   }
 
   @media (max-width: 600px) {
@@ -133,7 +133,6 @@ rux-input {
   }
 
   ion-card{
-    max-height:100%;
     margin:unset!important;
     box-shadow:unset!important;
   }

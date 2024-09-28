@@ -1,0 +1,29 @@
+.chat-box {
+  margin: 2rem;
+  padding: 10px;
+  min-height: 4rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.85);
+}
+
+.chat-box-container{
+  max-height:10rem;
+}
+
+ .message {
+    width: 100%;
+    word-wrap: break-word;
+    max-width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    color: var(--color-text-primary);
+}
+
+
+.icon-area {
+    width: 4rem;
+    height: 4rem;
+    transform: translate(.5rem, 4rem);
+    position: relative;
+    z-index:1;
+}
