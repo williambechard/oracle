@@ -6,6 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { ButtonModule } from "primeng/button";
 import { AstroComponentsModule } from "@astrouxds/angular";
 import {ChatBoxComponent} from "../../components/chat-box/chat-box.component";
+import {AutoFocus} from "primeng/autofocus";
 
 @Component({
   selector: 'app-chat',
@@ -19,6 +20,7 @@ import {ChatBoxComponent} from "../../components/chat-box/chat-box.component";
     ButtonModule,
     AstroComponentsModule,
     ChatBoxComponent,
+    AutoFocus,
   ],
   standalone: true
 })

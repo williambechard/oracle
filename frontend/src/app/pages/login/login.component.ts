@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { ImageModule } from "primeng/image";
 import { IonicModule } from "@ionic/angular";
 import { FormsModule } from "@angular/forms";
@@ -7,6 +7,8 @@ import { AstroComponentsModule } from "@astrouxds/angular";
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserAuthService } from '../../services/user-auth.service';
+import {AutoFocus} from "primeng/autofocus";
+import {Keyboard} from "@capacitor/keyboard";
 
 @Component({
   selector: 'app-login',
@@ -19,18 +21,44 @@ import { UserAuthService } from '../../services/user-auth.service';
     FormsModule,
     ButtonModule,
     AstroComponentsModule,
+    AutoFocus,
   ],
   standalone: true
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   email: string = '';
   apiKey: string = '';
   errorMessage: string = '';
   isLoading: boolean = false;
+  keyboardVisible: boolean = false;
 
   constructor(private userAuthService: UserAuthService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Listen for keyboard show event
+    Keyboard.addListener('keyboardWillShow', this.onKeyboardWillShow.bind(this));
+    // Listen for keyboard hide event
+    Keyboard.addListener('keyboardWillHide', this.onKeyboardWillHide.bind(this));
+  }
+
+  // Called when the keyboard is about to show
+  onKeyboardWillShow() {
+    console.log('Keyboard is about to show');
+    this.keyboardVisible = true;
+    // Your logic when the keyboard is about to show
+  }
+
+  // Called when the keyboard is about to hide
+  onKeyboardWillHide() {
+    console.log('Keyboard is about to hide');
+    this.keyboardVisible = false;
+    // Your logic when the keyboard is about to hide
+  }
+
+  ngOnDestroy() {
+    // Clean up the event listeners to prevent memory leaks
+    Keyboard.removeAllListeners();
+  }
 
   login() {
     this.isLoading = true;
@@ -81,5 +109,16 @@ export class LoginComponent implements OnInit {
 
   register() {
     window.open('https://www.asksage.ai/', '_blank');
+  }
+
+  onFocus(event: FocusEvent) {
+    // Check if the event target is an input element
+    const target = event.target as HTMLInputElement;
+
+    // Set focus on the input element
+    if (target) {
+      target.focus();
+      Keyboard.show();
+    }
   }
 }
