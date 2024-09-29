@@ -6,8 +6,9 @@ const config: CapacitorConfig = {
   appName: 'oracle',
   webDir: 'www',
   server: {
-    url: 'http://10.0.2.2:5000',
+    hostname: '127.0.0.1',
     cleartext: true,
+    allowNavigation: ['*'],
   },
   plugins: {
     Keyboard: {

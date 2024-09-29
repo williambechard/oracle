@@ -1,23 +1,9 @@
 <div class="background-image full-height center-content">
-  <div class="content scrollable-cha">
-    <app-chat-box class="chat-box-container" message="Hello, I am AskSage. How can I help you today?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="I am about to take leave, and have a questions about it." [isUser]="true"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Would you like me to focus on regulations for USSF or USAF?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Hello, I am AskSage. How can I help you today?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="I am about to take leave, and have a questions about it." [isUser]="true"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Would you like me to focus on regulations for USSF or USAF?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Hello, I am AskSage. How can I help you today?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="I am about to take leave, and have a questions about it." [isUser]="true"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Would you like me to focus on regulations for USSF or USAF?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Hello, I am AskSage. How can I help you today?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="I am about to take leave, and have a questions about it." [isUser]="true"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Would you like me to focus on regulations for USSF or USAF?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Hello, I am AskSage. How can I help you today?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="I am about to take leave, and have a questions about it." [isUser]="true"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Would you like me to focus on regulations for USSF or USAF?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Hello, I am AskSage. How can I help you today?" [isUser]="false"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="I am about to take leave, and have a questions about it." [isUser]="true"></app-chat-box>
-    <app-chat-box class="chat-box-container" message="Would you like me to focus on regulations for USSF or USAF?" [isUser]="false"></app-chat-box>
+  <div class="content scrollable-chat">
+    <app-chat-box *ngFor="let chat of chats" class="chat-box-container" [message]="chat.message" [isUser]="chat.isUser"></app-chat-box>
+    <div *ngIf="isLoading" class="progress-bar-area">
+      <ion-progress-bar type="indeterminate"></ion-progress-bar>
+    </div>
   </div>
   <div class="bottom-area">
     <p-button icon="pi pi-microphone" styleClass="p-button-rounded p-button-text"  [rounded]="true"></p-button>
@@ -25,8 +11,9 @@
       placeholder="Ask your military question..."
       size="large"
       style="flex-grow: 1; margin: 0 1rem; height: 100%;"
-      pAutoFocus
+      [(ngModel)]="message"
+      (keydown.enter)="submitChat(); $event.preventDefault();"
     ></rux-input>
-    <p-button icon="pi pi-send" styleClass="p-button-rounded p-button-text"  [rounded]="true"></p-button>
+    <p-button icon="pi pi-send" styleClass="p-button-rounded p-button-text"  (click)="submitChat()" [rounded]="true"></p-button>
   </div>
 </div>
