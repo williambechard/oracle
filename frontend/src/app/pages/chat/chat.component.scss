@@ -7,6 +7,11 @@
     overflow-y:auto;
   }
 
+.progress-bar-area{
+  padding-left:4rem;
+  padding-right:4rem;
+}
+
   //style the scroll bar so the gutter isnt visible
   /* width */
   ::-webkit-scrollbar {
@@ -74,7 +79,6 @@
   }
 
 .scrollable-chat {
-  max-height: 80vh; /* Adjust this value as needed */
   overflow-y: auto;
 }
 
@@ -137,7 +141,6 @@
   }
 
   .scrollable-chat {
-    height: calc(100vh - 70px); // Adjust 70px based on the height of your bottom-area
     overflow-y: auto;
   }
 
