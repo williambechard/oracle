@@ -7,7 +7,9 @@
   </div>
   <ion-card class="chat-box">
     <ion-card-content>
-      <div class="message">{{message}}</div>
+      <div class="message">{{message}}
+        <a *ngIf="containsUrl" [href]="url" target="_blank">Link</a>
+      </div>
     </ion-card-content>
   </ion-card>
 </div>
