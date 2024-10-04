@@ -1,5 +1,5 @@
 # Stage 1: Build Angular app
-FROM node:18 AS build
+FROM node:18-alpine AS build
 
 # Set working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build -- --configuration production
 
 # Development stage
-FROM node:18 AS development
+FROM node:18-alpine AS development
 
 WORKDIR /app
 
@@ -25,7 +25,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies and Angular CLI globally
-RUN npm install && npm install -g @angular/cli
+RUN npm install --production && npm install -g @angular/cli
 
 # Copy the rest of the application code
 COPY . .

@@ -14,8 +14,8 @@ export class UserAuthService {
   private apiUrl =  '';
 
   constructor(private http: HttpClient, private platform: Platform) {
-    if (this.platform.ANDROID || this.platform.IOS) this.apiUrl = 'http://10.0.2.2:5000';
-     else this.apiUrl = 'http://localhost:5000';
+    if (this.platform.ANDROID || this.platform.IOS) this.apiUrl = 'https://ury2ok2000.pythonanywhere.com:5000';
+     else this.apiUrl = 'https://ury2ok2000.pythonanywhere.com';
   }
 
   login(email: string, apiKey: string): Observable<any> {
