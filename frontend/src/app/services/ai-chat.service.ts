@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AiChatService {
-  private apiUrl = 'http://localhost:5000/ask'; // Replace with your actual backend API URL
+  private apiUrl = 'http://localhost:5001/ask'; // Replace with your actual backend API URL
 
   constructor(private http: HttpClient) {}
 
