@@ -13,4 +13,6 @@ import {IonicModule} from "@ionic/angular";
 export class ChatBoxComponent {
   @Input() message: string = '';
   @Input() isUser: boolean = false;
+  @Input() containsUrl: boolean = false;
+  @Input() url: string = '';
 }

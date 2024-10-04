@@ -27,8 +27,9 @@ import {AiChatService} from "../../services/ai-chat.service";
 })
 export class ChatComponent  implements OnInit {
   chats: Chat[] = [];
-  message: string ="";
+  message: string = "";
   isLoading:boolean=false;
+  url: Url = {containsUrl: false, url: ""};
 
   constructor(private aiChatService: AiChatService) { }
 
@@ -38,12 +39,13 @@ export class ChatComponent  implements OnInit {
     console.log('chat submitted:', this.message);
     this.isLoading=true;
     // send chat to server
-    this.chats.push({message: this.message, isUser: true});
+    this.chats.push({message: this.message, isUser: true, containsUrl: false, url: ""});
 
     this.aiChatService.askQuestion(this.sanitizeMessage(this.message)).subscribe((response: any) => {
       console.log('response:', response);
       this.isLoading=false;
-      this.chats.push({message: response.message, isUser: false});
+      this.url = this.extractUrl(response.message);
+      this.chats.push({message: this.removeUrl(response.message), isUser: false, containsUrl: this.url.containsUrl, url: this.url.url});
     });
 
     // clear input value
@@ -55,10 +57,35 @@ export class ChatComponent  implements OnInit {
     return message;
   }
 
+  extractUrl(message: string): Url {
+    const urlRegex = /\[.*?\]\((.*?)\)/;
+    const match = message.match(urlRegex);
+    if (match && match[1]) {
+      const url = match[1];
+      console.log("Extracted URL:", url);
+      return {containsUrl: true, url: url}
+    } else {
+      console.log("No URL found");
+      return {containsUrl: false, url: ""}
+    }
+  }
+
+  removeUrl(message: string): string {
+    return message.replace(/\[.*?\]\(.*?\)/g, '');
+  }
+
 
 }
 
 interface Chat{
   message: string;
   isUser: boolean;
+  containsUrl: boolean;
+  url: string
 }
+
+interface Url{
+  containsUrl: boolean;
+  url: string
+}
+
