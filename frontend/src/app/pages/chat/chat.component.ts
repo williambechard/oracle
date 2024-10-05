@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageModule } from "primeng/image";
 import { IonicModule } from "@ionic/angular";
@@ -7,7 +7,7 @@ import { ButtonModule } from "primeng/button";
 import { AstroComponentsModule } from "@astrouxds/angular";
 import {ChatBoxComponent} from "../../components/chat-box/chat-box.component";
 import {AutoFocus} from "primeng/autofocus";
-import {AiChatService} from "../../services/ai-chat.service";
+import {ApiService} from "../../services/api.service";
 
 @Component({
   selector: 'app-chat',
@@ -26,12 +26,13 @@ import {AiChatService} from "../../services/ai-chat.service";
   standalone: true
 })
 export class ChatComponent  implements OnInit {
+  @ViewChild('scrollableChat') private scrollableChat!: ElementRef;
   chats: Chat[] = [];
   message: string = "";
   isLoading:boolean=false;
   url: Url = {containsUrl: false, url: ""};
 
-  constructor(private aiChatService: AiChatService) { }
+  constructor(private apiService:ApiService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {}
 
@@ -41,15 +42,31 @@ export class ChatComponent  implements OnInit {
     // send chat to server
     this.chats.push({message: this.message, isUser: true, containsUrl: false, url: ""});
 
-    this.aiChatService.askQuestion(this.sanitizeMessage(this.message)).subscribe((response: any) => {
+    // Ensure the UI has updated before scrolling
+    this.cdr.detectChanges();  // Trigger change detection
+    setTimeout(() => this.scrollToBottom(), 100);  // Scroll to bottom after DOM update
+
+    this.apiService.ask({message:this.sanitizeMessage(this.message)}).subscribe((response: any) => {
       console.log('response:', response);
       this.isLoading=false;
       this.url = this.extractUrl(response.message);
       this.chats.push({message: this.removeUrl(response.message), isUser: false, containsUrl: this.url.containsUrl, url: this.url.url});
+      // Ensure the UI has updated before scrolling
+      this.cdr.detectChanges();  // Trigger change detection
+      setTimeout(() => this.scrollToBottom(), 100);  // Scroll to bottom after DOM update
+
     });
 
     // clear input value
     this.message = '';
+  }
+
+  private scrollToBottom(): void {
+    try {
+      this.scrollableChat.nativeElement.scrollTop = this.scrollableChat.nativeElement.scrollHeight;
+    } catch (err) {
+      console.error('Scroll to bottom failed:', err);
+    }
   }
 
   sanitizeMessage(message: string): string {

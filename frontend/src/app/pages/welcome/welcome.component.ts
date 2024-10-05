@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AstroComponentsModule } from "@astrouxds/angular";
 import { IonicModule } from '@ionic/angular';
-import { UserAuthService } from '../../services/user-auth.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-welcome',
@@ -16,10 +16,10 @@ export class WelcomeComponent implements OnInit {
 
   isLoggedIn: boolean = false;
 
-  constructor(private router: Router, private authService: UserAuthService) {}
+  constructor(private router: Router, private apiService: ApiService) {}
 
   ngOnInit() {
-    this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
+    this.apiService.isLoggedIn$.subscribe((isLoggedIn) => {
       this.isLoggedIn = isLoggedIn;
     });
   }

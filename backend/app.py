@@ -15,9 +15,9 @@ CORS(app)  # Enable CORS for all routes
 # Load environment variables from .env file
 load_dotenv()
 
-# Declare the global variable
-global client
-client = None
+# Declare the global variables
+stored_email = None
+stored_api_key = None
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -32,14 +32,14 @@ def login():
     try:
         # Initialize the client after successful login
         client = AskSageClient(email, api_key)
+        global stored_email, stored_api_key
+        stored_email = email
+        stored_api_key = api_key
         logging.info("Ask Sage client successfully initialized.")
         return jsonify({"message": "Login successful", "access_token": "dummy_token"}), 200
     except Exception as e:
         logging.error("Failed to initialize Ask Sage client: %s", str(e))
         return jsonify({"error": "Login failed. Please check your credentials."}), 401
-    
-        
-
 
 
 @app.route('/status', methods=['GET'])
@@ -56,10 +56,12 @@ def status():
 @app.route('/ask', methods=['POST'])
 def ask():
     global client  # Declare client as global to modify the global variable
-    if not client:
-        return jsonify({"error": "Not logged in"}), 401
-    
-    try:     
+
+    try:
+        print(f"Email: {stored_email}")
+        if not client:
+            return jsonify({"error": stored_email}), 401
+            client = AskSageClient(stored_email, stored_api_key)
         data = request.json
         content = data.get("content")
         if not content:
@@ -67,10 +69,19 @@ def ask():
 
         # Query the Ask Sage API
         response = client.query(message=content)
-        return jsonify(response)
+        followUp = client.query_with_file(message="can you guess 3 follow up questions to the members originall question? " + content)
+        return jsonify({"response": response, "followUp": followUp})
     except Exception as e:
         logging.error("Error during query: %s", str(e))
-        return jsonify({"error": str(e)}), 500
+        # Retry login if query fails
+        try:
+            client = AskSageClient(stored_email, stored_api_key)
+            response = client.query(message=content)
+            follow_up_questions = response.get('follow_up_questions', [])
+            return jsonify({"response": response, "follow_up_questions": follow_up_questions})
+        except Exception as retry_e:
+            logging.error("Retry login failed: %s", str(retry_e))
+            return jsonify({"error": str(retry_e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
