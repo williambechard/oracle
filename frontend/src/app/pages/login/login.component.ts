@@ -6,7 +6,7 @@ import { ButtonModule } from "primeng/button";
 import { AstroComponentsModule } from "@astrouxds/angular";
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { UserAuthService } from '../../services/user-auth.service';
+import {ApiService} from '../../services/api.service';
 import {AutoFocus} from "primeng/autofocus";
 import {Keyboard} from "@capacitor/keyboard";
 
@@ -32,13 +32,23 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
   keyboardVisible: boolean = false;
 
-  constructor(private userAuthService: UserAuthService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
     // Listen for keyboard show event
     Keyboard.addListener('keyboardWillShow', this.onKeyboardWillShow.bind(this));
     // Listen for keyboard hide event
     Keyboard.addListener('keyboardWillHide', this.onKeyboardWillHide.bind(this));
+
+    //determiine if emial and api-key are in local storaage
+    const email = localStorage ? localStorage.getItem('email') : null;
+    const apiKey = localStorage ? localStorage.getItem('api-key') : null;
+
+    if(email && apiKey){
+      this.email = email;
+      this.apiKey = apiKey;
+    }
+
   }
 
   // Called when the keyboard is about to show
@@ -67,17 +77,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     const sanitizedEmail = this.sanitizeInput(this.email);
     const sanitizedApiKey = this.sanitizeInput(this.apiKey);
 
-    this.userAuthService.login(sanitizedEmail, sanitizedApiKey).subscribe({
+    this.apiService.login(sanitizedEmail, sanitizedApiKey).subscribe({
       next: (response: any) => {
         console.log('Login successful', response);
         this.isLoading = false;
-
-        // make a test call to /ask with a prompt
-        this.userAuthService.ask('Is 10 larger than 100, and why?').subscribe((response: any) => {
-          console.log('Test call successful', response);
-        });
-
-
         this.router.navigate(['/welcome']);
       },
       error: (error: any) => {

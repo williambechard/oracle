@@ -7,11 +7,13 @@ import { Platform } from '@angular/cdk/platform';
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthService {
+export class ApiService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
   private token: string | null = null;
   private apiUrl =  '';
+
+
 
   constructor(private http: HttpClient, private platform: Platform) {
     if (this.platform.ANDROID || this.platform.IOS) this.apiUrl = 'http://10.0.2.2:5001';
@@ -19,12 +21,18 @@ export class UserAuthService {
   }
 
   login(email: string, apiKey: string): Observable<any> {
-    return this.http.post(this.apiUrl+'/login', { email, api: apiKey }).pipe(
-      map((response: any) => {
-        if (response && response.access_token) {
-          this.token = response.access_token;
+    return this.http.post('https://api.asksage.ai/user/get-token-with-api-key', { email, 'api_key': apiKey }).pipe(
+      map((data: any) => {
+        console.log('response ', data);
+        if (data && data.response.access_token) {
+          this.token = data.response.access_token;
           this.isLoggedInSubject.next(true);
-          return response;
+
+          //successful login, so store email and api-key securely locally to be used for auto-login
+          localStorage.setItem('email', email);
+          localStorage.setItem('api-key', apiKey);
+
+          return data.response;
         } else {
           throw new Error('Access token not found in response');
         }
@@ -42,16 +50,6 @@ export class UserAuthService {
     return this.token;
   }
 
-  checkAuthStatus(): Observable<boolean> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-    return this.http.get<{is_authenticated: boolean}>(this.apiUrl+ '/status', { headers }).pipe(
-      map(response => response.is_authenticated),
-      tap((isAuthenticated: boolean) => {
-        this.isLoggedInSubject.next(isAuthenticated);
-      }),
-      catchError(this.handleError)
-    );
-  }
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown Error';
@@ -62,11 +60,23 @@ export class UserAuthService {
     return throwError(() => new Error(errorMessage));
   }
 
-  ask(content: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/ask`, { content }, {
-      headers: { 'Authorization': `Bearer ${this.getToken()}` }
-    });
+ask(content: { message: string; persona?: string; system_prompt?: string; dataset?: string; limit_references?: number; temperature?: number; live?: number; model?: string }): Observable<any> {
+    const token = this.getToken();
+    console.log('Token:', token); // Log the token for debugging
+
+    if (!token) {
+      throw new Error('Token is missing');
+    }
+
+    return this.http.post('https://api.asksage.ai/server/query', content, {
+      headers: { 'x-access-tokens': token }
+    }).pipe(
+      catchError(this.handleError)
+    );
   }
+
+
+
 
 
 }
