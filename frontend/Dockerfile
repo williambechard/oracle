@@ -17,26 +17,24 @@ COPY . .
 RUN npm run build -- --configuration production
 
 # Development stage
-FROM node:18 AS development
+FROM node:18-alpine AS development
 
 WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies and Angular CLI globally
-RUN npm install && npm install -g @angular/cli
+# Install only development dependencies and clear npm cache
+RUN npm install --only=dev && npm cache clean --force
 
 # Copy the rest of the application code
 COPY . .
 
 EXPOSE 4200
 
-# Change to the directory containing angular.json
-WORKDIR /app
+# Serve the app using the local Angular CLI
+CMD ["npx", "ng", "serve", "--host=0.0.0.0", "--disable-host-check", "--poll=2000"]
 
-# Use ng serve directly
-CMD ["ng", "serve", "--project=oracle", "--host=0.0.0.0", "--disable-host-check", "--poll=2000"]
 
 # Production serve stage
 FROM nginx:alpine
