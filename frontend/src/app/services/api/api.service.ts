@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
+import {ChatSettingsService} from "../chat-settings.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class ApiService {
 
 
 
-  constructor(private http: HttpClient, private platform: Platform) {
+  constructor(private http: HttpClient, private platform: Platform, private chatSettingsService: ChatSettingsService) {
     if (this.platform.ANDROID || this.platform.IOS) this.apiUrl = 'http://10.0.2.2:5001';
      else this.apiUrl = 'http://localhost:5001';
   }
@@ -60,15 +61,32 @@ export class ApiService {
     return throwError(() => new Error(errorMessage));
   }
 
-ask(content: { message: string; persona?: string; system_prompt?: string; dataset?: string; limit_references?: number; temperature?: number; live?: number; model?: string }): Observable<any> {
+  getPlugins(){
     const token = this.getToken();
-    console.log('Token:', token); // Log the token for debugging
 
     if (!token) {
       throw new Error('Token is missing');
     }
 
-    return this.http.post('https://api.asksage.ai/server/query', content, {
+    return this.http.post('https://api.asksage.ai/server/get-plugins', {}, {
+      headers: { 'x-access-tokens': token }
+    }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  ask(content: { message: string; persona?: string; system_prompt?: string; dataset?: string; limit_references?: number; temperature?: number; live?: number; model?: string }): Observable<any> {
+    const token = this.getToken();
+    const contentWithSettings = { ...content,
+      temperature: this.chatSettingsService.getSetting('temp') /100 || 0,
+      live: this.chatSettingsService.getSetting('live') || 0,
+      model: this.chatSettingsService.getSetting('model') || 'gpt-3.5-turbo'};
+
+    if (!token) {
+      throw new Error('Token is missing');
+    }
+
+    return this.http.post('https://api.asksage.ai/server/query', contentWithSettings, {
       headers: { 'x-access-tokens': token }
     }).pipe(
       catchError(this.handleError)

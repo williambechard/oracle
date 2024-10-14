@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AstroComponentsModule } from "@astrouxds/angular";
 import { IonicModule } from '@ionic/angular';
-import { ApiService } from '../../services/api.service';
+import { ApiService } from '../../services/api/api.service';
+
 
 @Component({
   selector: 'app-welcome',
@@ -22,6 +23,7 @@ export class WelcomeComponent implements OnInit {
     this.apiService.isLoggedIn$.subscribe((isLoggedIn) => {
       this.isLoggedIn = isLoggedIn;
     });
+
   }
 
   continue() {

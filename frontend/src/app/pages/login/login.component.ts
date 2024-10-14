@@ -6,7 +6,7 @@ import { ButtonModule } from "primeng/button";
 import { AstroComponentsModule } from "@astrouxds/angular";
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import {ApiService} from '../../services/api.service';
+import {ApiService} from '../../services/api/api.service';
 import {AutoFocus} from "primeng/autofocus";
 import {Keyboard} from "@capacitor/keyboard";
 
