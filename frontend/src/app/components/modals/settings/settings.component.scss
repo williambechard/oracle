@@ -1,0 +1,62 @@
+.center-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-area{
+  background-color: var(--color-background-surface-header);
+  width:100%;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.modal-header{
+  background-color: var(--color-background-surface-header) !important;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.header{
+  color: var(--color-text-interactive-default)
+}
+
+.content-area{
+  padding:1rem;
+  max-height: 74vh;
+  overflow-y: auto;
+  color: var(--color-text-primary);
+}
+
+.welcome-card {
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.75);
+  background-color: var(--color-background-base-default);
+  height: 90%;
+  border-radius: 1rem;
+  margin-right:1rem;
+  margin-left:1rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+:host{
+  --ion-color-primary: var(--color-background-surface-default);
+  --ion-color-light: var(--color-background-surface-default);
+
+  div#background-content{
+    background: var(--color-background-surface-default) !important;
+  }
+  .rux-dialog__dialog{
+    width: 80vw!important;
+    height:80vh!important;
+  }
+
+}
+
+

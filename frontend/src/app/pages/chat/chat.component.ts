@@ -7,7 +7,10 @@ import { ButtonModule } from "primeng/button";
 import { AstroComponentsModule } from "@astrouxds/angular";
 import {ChatBoxComponent} from "../../components/chat-box/chat-box.component";
 import {AutoFocus} from "primeng/autofocus";
-import {ApiService} from "../../services/api.service";
+import {ApiService} from "../../services/api/api.service";
+import {PdfViewerModule} from "ng2-pdf-viewer";
+import {SafeUrlPipe} from "../../pipes/SafeUrlPipe";
+import {OptionsButtonComponent} from "../../components/options-button/options-button.component";
 
 @Component({
   selector: 'app-chat',
@@ -22,6 +25,9 @@ import {ApiService} from "../../services/api.service";
     AstroComponentsModule,
     ChatBoxComponent,
     AutoFocus,
+    PdfViewerModule,
+    SafeUrlPipe,
+    OptionsButtonComponent,
   ],
   standalone: true
 })
@@ -40,17 +46,19 @@ export class ChatComponent  implements OnInit {
     console.log('chat submitted:', this.message);
     this.isLoading=true;
     // send chat to server
-    this.chats.push({message: this.message, isUser: true, containsUrl: false, url: ""});
+    this.chats.push({message: this.message, isUser: true, containsUrl: false, url: "", references: ""});
 
     // Ensure the UI has updated before scrolling
     this.cdr.detectChanges();  // Trigger change detection
     setTimeout(() => this.scrollToBottom(), 100);  // Scroll to bottom after DOM update
 
     this.apiService.ask({message:this.sanitizeMessage(this.message)}).subscribe((response: any) => {
+
       console.log('response:', response);
       this.isLoading=false;
       this.url = this.extractUrl(response.message);
-      this.chats.push({message: this.removeUrl(response.message), isUser: false, containsUrl: this.url.containsUrl, url: this.url.url});
+      console.log('url:', this.url);
+      this.chats.push({message: this.removeUrl(response.message), isUser: false, containsUrl: this.url.containsUrl, url: this.url.url, references: response.references});
       // Ensure the UI has updated before scrolling
       this.cdr.detectChanges();  // Trigger change detection
       setTimeout(() => this.scrollToBottom(), 100);  // Scroll to bottom after DOM update
@@ -70,12 +78,14 @@ export class ChatComponent  implements OnInit {
   }
 
   sanitizeMessage(message: string): string {
-    // sanitize message to prevent XSS
-    return message;
+    // sanitize this messge so no xss
+    const sanitizedMessage = message.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
+      '. You must include the reference numbers in your response. In the references include the paragraph number if applicable.At the end of the response message include a url to the pdf you referenced if the url begins with https://static.e-publishing.af.mil/ but do not include #toolbar=0&navpanes=0&page= at the end of the link end the link with .pdf. '
+    return sanitizedMessage;
   }
 
   extractUrl(message: string): Url {
-    const urlRegex = /\[.*?\]\((.*?)\)/;
+    const urlRegex = /(https:\/\/static\.e-publishing\.af\.mil\/[^\s]+\.pdf)/;
     const match = message.match(urlRegex);
     if (match && match[1]) {
       const url = match[1];
@@ -90,12 +100,11 @@ export class ChatComponent  implements OnInit {
   removeUrl(message: string): string {
     return message.replace(/\[.*?\]\(.*?\)/g, '');
   }
-
-
 }
 
 interface Chat{
   message: string;
+  references: string;
   isUser: boolean;
   containsUrl: boolean;
   url: string
@@ -105,4 +114,3 @@ interface Url{
   containsUrl: boolean;
   url: string
 }
-

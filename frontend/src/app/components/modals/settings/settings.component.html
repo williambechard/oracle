@@ -1,0 +1,19 @@
+<div style="display: flex; flex-direction: column; justify-content: center;">
+  <rux-dialog id="dialog-with-slot" open="visible">
+    <span slot="header">LLM Settings</span>
+    <div style="display: flex; flex-direction: column; gap:2rem">
+      <label>Temperature</label>
+      <rux-slider id="axis" [(ngModel)]="selectedTemp" max="100" min="0" step="1" value="50" axis-labels="[0,25,50,75,100]"></rux-slider>
+      <div style="display:flex; flex-direction:row; justify-content: start; gap:2rem">
+        <label for="live">Live results</label>
+        <rux-switch id="live" name="" [(ngModel)]="selectedLive"></rux-switch>
+      </div>
+    </div>
+    <div slot="footer" style="display: flex; justify-content: end; align-items: center;">
+      <div style="display:flex; gap: var(--spacing-2);">
+        <rux-button id="cancel" secondary="" (click)="onCancelBtn()">Cancel</rux-button>
+        <rux-button id="confirm" (click)="saveSettings()">Confirm</rux-button>
+      </div>
+    </div>
+  </rux-dialog>
+</div>

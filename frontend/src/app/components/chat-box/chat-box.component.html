@@ -7,8 +7,14 @@
   </div>
   <ion-card class="chat-box">
     <ion-card-content>
-      <div class="message">{{message}}
-        <a *ngIf="containsUrl" [href]="url" target="_blank">Link</a>
+      <div class="message" [innerHTML]="messageFormatted">
+      </div>
+      <div>
+      </div>
+      <div *ngIf="references.length > 0" class="ref-area">
+       <ion-accordion-group  *ngFor="let reference of referenceArray">
+         <app-ref-line [reference]="reference" [refURL]="url" [pageNum]="reference.pageNumber"></app-ref-line>
+       </ion-accordion-group>
       </div>
     </ion-card-content>
   </ion-card>
