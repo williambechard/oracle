@@ -75,12 +75,27 @@ export class ApiService {
     );
   }
 
+  getModels(){
+    const token = this.getToken();
+
+    if (!token) {
+      throw new Error('Token is missing');
+    }
+
+    return this.http.post('https://api.asksage.ai/server/get-models', {}, {
+      headers: { 'x-access-tokens': token }
+    }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   ask(content: { message: string; persona?: string; system_prompt?: string; dataset?: string; limit_references?: number; temperature?: number; live?: number; model?: string }): Observable<any> {
     const token = this.getToken();
     const contentWithSettings = { ...content,
       temperature: this.chatSettingsService.getSetting('temp') /100 || 0,
       live: this.chatSettingsService.getSetting('live') || 0,
-      model: this.chatSettingsService.getSetting('model') || 'gpt-3.5-turbo'};
+      model: this.chatSettingsService.getSetting('model') || 'gpt-3.5-turbo',
+    message: content.message + 'answer in the context of ' + this.chatSettingsService.getSetting('context') || 'any'};
 
     if (!token) {
       throw new Error('Token is missing');

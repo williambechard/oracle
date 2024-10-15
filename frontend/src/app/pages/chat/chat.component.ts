@@ -40,7 +40,10 @@ export class ChatComponent  implements OnInit {
 
   constructor(private apiService:ApiService, private cdr: ChangeDetectorRef) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // submit a chat to start the conversation
+    this.chats.push({message: 'Welcome! Please type your question below. You can also you the settings button to the right to change LLM and other settings.', isUser: false, containsUrl: false, url: "", references: ""});
+  }
 
   submitChat() {
     console.log('chat submitted:', this.message);
@@ -58,7 +61,7 @@ export class ChatComponent  implements OnInit {
       this.isLoading=false;
       this.url = this.extractUrl(response.message);
       console.log('url:', this.url);
-      this.chats.push({message: this.removeUrl(response.message), isUser: false, containsUrl: this.url.containsUrl, url: this.url.url, references: response.references});
+      this.chats.push({message: response.message, isUser: false, containsUrl: this.url.containsUrl, url: this.url.url, references: response.references});
       // Ensure the UI has updated before scrolling
       this.cdr.detectChanges();  // Trigger change detection
       setTimeout(() => this.scrollToBottom(), 100);  // Scroll to bottom after DOM update

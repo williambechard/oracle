@@ -46,6 +46,12 @@ export class LlmComponent implements  OnInit{
     this.apiService.getPlugins().subscribe((data: any) => {
       console.log('plugins', data);
     });
+
+    this.apiService.getModels().subscribe((data: any) => {
+      this.models = data.response;
+      console.log('models', data);
+    });
+
     this.selectedModel = this.settingsService.getSetting('llm') || 'gpt-3.5-turbo';
   }
 
