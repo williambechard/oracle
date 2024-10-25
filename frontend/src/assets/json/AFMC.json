@@ -1,0 +1,542 @@
+[
+    {
+        "file": "afi10-208_afmcsup_i.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi10-208_afmcsup/afi10-208_afmcsup_i.pdf"
+    },
+    {
+        "file": "afi10-220_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi10-220_afmcsup/afi10-220_afmcsup.pdf"
+    },
+    {
+        "file": "afi10-3503_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi10-3503_afmcsup/afi10-3503_afmcsup.pdf"
+    },
+    {
+        "file": "afi11-215_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi11-215_afmcsup/afi11-215_afmcsup.pdf"
+    },
+    {
+        "file": "afi13-500_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi13-500_afmcsup/afi13-500_afmcsup.pdf"
+    },
+    {
+        "file": "afi14-111_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi14-111_afmcsup/afi14-111_afmcsup.pdf"
+    },
+    {
+        "file": "afi16-1301_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi16-1301_afmcsup/afi16-1301_afmcsup.pdf"
+    },
+    {
+        "file": "afi16-1404_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi16-1404_afmcsup/afi16-1404_afmcsup.pdf"
+    },
+    {
+        "file": "afi16-402_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi16-402_afmcsup/afi16-402_afmcsup.pdf"
+    },
+    {
+        "file": "afi16-601_afmcsup_i.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi16-601_afmcsup/afi16-601_afmcsup_i.pdf"
+    },
+    {
+        "file": "afi16-604_afmcsup_i.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi16-604_afmcsup/afi16-604_afmcsup_i.pdf"
+    },
+    {
+        "file": "afi16-608_afmcsup_i.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi16-608_afmcsup/afi16-608_afmcsup_i.pdf"
+    },
+    {
+        "file": "afi16-701_afmcsup_afmcgm2024-01.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi16-701_afmcsup_afmcgm2024-01/afi16-701_afmcsup_afmcgm2024-01.pdf"
+    },
+    {
+        "file": "afi20-110_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi20-110_afmcsup/afi20-110_afmcsup.pdf"
+    },
+    {
+        "file": "afi21-101_afmcsup_add_a.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi21-101_afmcsup_add_a/afi21-101_afmcsup_add_a.pdf"
+    },
+    {
+        "file": "afi21-101__afmcsup_addendum_b_formatted.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi21-101_afmcsup_addendum_b/afi21-101__afmcsup_addendum_b_formatted.pdf"
+    },
+    {
+        "file": "dafi23-101_afmcsup_afmcgm2024-01.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi23-101_afmcsup/dafi23-101_afmcsup_afmcgm2024-01.pdf"
+    },
+    {
+        "file": "generic_wms.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi31-101_afmcsup-o/generic_wms.pdf"
+    },
+    {
+        "file": "afi36-2501_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi36-2501_afmcsup/afi36-2501_afmcsup.pdf"
+    },
+    {
+        "file": "afi36-2650_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi36-2650_afmcsup/afi36-2650_afmcsup.pdf"
+    },
+    {
+        "file": "afi38-101_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi38-101_afmcsup/afi38-101_afmcsup.pdf"
+    },
+    {
+        "file": "afi60-101_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi60-101_afmcsup/afi60-101_afmcsup.pdf"
+    },
+    {
+        "file": "afi62-601_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi62-601_afmcsup/afi62-601_afmcsup.pdf"
+    },
+    {
+        "file": "afi63-125_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi63-125_afmcsup/afi63-125_afmcsup.pdf"
+    },
+    {
+        "file": "afi_90-401_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afi90-401_afmcsup/afi_90-401_afmcsup.pdf"
+    },
+    {
+        "file": "afman10-206_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman10-206_afmcsup/afman10-206_afmcsup.pdf"
+    },
+    {
+        "file": "afman10-207_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman10-207_afmcsup/afman10-207_afmcsup.pdf"
+    },
+    {
+        "file": "afman11-202v1_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman11-202v1_afmcsup/afman11-202v1_afmcsup.pdf"
+    },
+    {
+        "file": "afman11-202v2_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman11-202v2_afmcsup/afman11-202v2_afmcsup.pdf"
+    },
+    {
+        "file": "afman11-202v3_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman11-202v3_afmcsup/afman11-202v3_afmcsup.pdf"
+    },
+    {
+        "file": "afman11-301v2_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman11-301v2_afmcsup/afman11-301v2_afmcsup.pdf"
+    },
+    {
+        "file": "afman11-402_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman11-402_afmcsup/afman11-402_afmcsup.pdf"
+    },
+    {
+        "file": "afman13-204v1_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman13-204v1_afmcsup/afman13-204v1_afmcsup.pdf"
+    },
+    {
+        "file": "afman13-204v2_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman13-204v2_afmcsup/afman13-204v2_afmcsup.pdf"
+    },
+    {
+        "file": "afman13-204v3_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman13-204v3_afmcsup/afman13-204v3_afmcsup.pdf"
+    },
+    {
+        "file": "afman21-202__afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman21-202_afmcsup/afman21-202__afmcsup.pdf"
+    },
+    {
+        "file": "afman21-206_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman21-206_afmcsup/afman21-206_afmcsup.pdf"
+    },
+    {
+        "file": "afman23-122_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afman23-122_afmcsup/afman23-122_afmcsup.pdf"
+    },
+    {
+        "file": "afmci10-205.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci10-205/afmci10-205.pdf"
+    },
+    {
+        "file": "afmci10-210.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci10-210/afmci10-210.pdf"
+    },
+    {
+        "file": "afmci10-503.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci10-503/afmci10-503.pdf"
+    },
+    {
+        "file": "afmci10-800.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci10-800/afmci10-800.pdf"
+    },
+    {
+        "file": "afmci10-901.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci10-901/afmci10-901.pdf"
+    },
+    {
+        "file": "afmci15-102.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci15-102/afmci15-102.pdf"
+    },
+    {
+        "file": "afmci16-101.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci16-101/afmci16-101.pdf"
+    },
+    {
+        "file": "afmci20-102.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci20-102/afmci20-102.pdf"
+    },
+    {
+        "file": "afmci20-104.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci20-104/afmci20-104.pdf"
+    },
+    {
+        "file": "afmci20-105.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci20-105/afmci20-105.pdf"
+    },
+    {
+        "file": "afmci21-100v1.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-100v1/afmci21-100v1.pdf"
+    },
+    {
+        "file": "afmci21-100v2.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-100v2/afmci21-100v2.pdf"
+    },
+    {
+        "file": "afmci21-100v3.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-100v3/afmci21-100v3.pdf"
+    },
+    {
+        "file": "afmci21-102.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-102/afmci21-102.pdf"
+    },
+    {
+        "file": "afmci21-103.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-103/afmci21-103.pdf"
+    },
+    {
+        "file": "afmci21-104.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-104/afmci21-104.pdf"
+    },
+    {
+        "file": "afmci21-105.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-105/afmci21-105.pdf"
+    },
+    {
+        "file": "afmci21-118.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-118/afmci21-118.pdf"
+    },
+    {
+        "file": "afmci21-126.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-126/afmci21-126.pdf"
+    },
+    {
+        "file": "afmci21-131.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-131/afmci21-131.pdf"
+    },
+    {
+        "file": "afmci21-141.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-141/afmci21-141.pdf"
+    },
+    {
+        "file": "afmci21-401.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci21-401/afmci21-401.pdf"
+    },
+    {
+        "file": "afmci23-105.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci23-105/afmci23-105.pdf"
+    },
+    {
+        "file": "afmci23-109.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci23-109/afmci23-109.pdf"
+    },
+    {
+        "file": "afmci23-110.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci23-110/afmci23-110.pdf"
+    },
+    {
+        "file": "afmci23-111.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci23-111/afmci23-111.pdf"
+    },
+    {
+        "file": "afmci23-113.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci23-113/afmci23-113.pdf"
+    },
+    {
+        "file": "afmci24-201.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci24-201/afmci24-201.pdf"
+    },
+    {
+        "file": "afmci33-108.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci33-108/afmci33-108.pdf"
+    },
+    {
+        "file": "afmci36-2601.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci36-2601/afmci36-2601.pdf"
+    },
+    {
+        "file": "afmci36-2602.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci36-2602/afmci36-2602.pdf"
+    },
+    {
+        "file": "afmci36-2613.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci36-2613/afmci36-2613.pdf"
+    },
+    {
+        "file": "afmci36-2636.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci36-2636/afmci36-2636.pdf"
+    },
+    {
+        "file": "afmci36-2645.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci36-2645/afmci36-2645.pdf"
+    },
+    {
+        "file": "afmci36-2801.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci36-2801/afmci36-2801.pdf"
+    },
+    {
+        "file": "afmci36-2808.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci36-2808/afmci36-2808.pdf"
+    },
+    {
+        "file": "afmci36-2817.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci36-2817/afmci36-2817.pdf"
+    },
+    {
+        "file": "afmci36-701.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci36-701/afmci36-701.pdf"
+    },
+    {
+        "file": "afmci51-500.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci51-500/afmci51-500.pdf"
+    },
+    {
+        "file": "afmci61-103.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci61-103/afmci61-103.pdf"
+    },
+    {
+        "file": "afmci62-202.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci62-202/afmci62-202.pdf"
+    },
+    {
+        "file": "afmci63-101.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci63-101/afmci63-101.pdf"
+    },
+    {
+        "file": "afmci63-1201.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci63-1201/afmci63-1201.pdf"
+    },
+    {
+        "file": "afmci64-116.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci64-116/afmci64-116.pdf"
+    },
+    {
+        "file": "afmci65-101.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci65-101/afmci65-101.pdf"
+    },
+    {
+        "file": "afmci90-1601.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci90-1601/afmci90-1601.pdf"
+    },
+    {
+        "file": "afmci90-601.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmci90-601/afmci90-601.pdf"
+    },
+    {
+        "file": "afmcman20-106.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman20-106/afmcman20-106.pdf"
+    },
+    {
+        "file": "afmcman21-102.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman21-102/afmcman21-102.pdf"
+    },
+    {
+        "file": "afmcman21-149.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman21-149/afmcman21-149.pdf"
+    },
+    {
+        "file": "afmcman23-101v3.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman23-101v3/afmcman23-101v3.pdf"
+    },
+    {
+        "file": "afmcman23-101v4.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman23-101v4/afmcman23-101v4.pdf"
+    },
+    {
+        "file": "afmcman23-101v5.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman23-101v5/afmcman23-101v5.pdf"
+    },
+    {
+        "file": "afmcman23-101v6.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman23-101v6/afmcman23-101v6.pdf"
+    },
+    {
+        "file": "afmcman23-102.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman23-102/afmcman23-102.pdf"
+    },
+    {
+        "file": "afmcman23-103.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman23-103/afmcman23-103.pdf"
+    },
+    {
+        "file": "afmcman23-501v1.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman23-501v1/afmcman23-501v1.pdf"
+    },
+    {
+        "file": "afmcman23-501v2.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman23-501v2/afmcman23-501v2.pdf"
+    },
+    {
+        "file": "afmcman36-2601.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman36-2601/afmcman36-2601.pdf"
+    },
+    {
+        "file": "afmcman63-1202.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman63-1202/afmcman63-1202.pdf"
+    },
+    {
+        "file": "afmcman64-104v1.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman64-104v1/afmcman64-104v1.pdf"
+    },
+    {
+        "file": "afmcman64-104v2.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman64-104v2/afmcman64-104v2.pdf"
+    },
+    {
+        "file": "afmcman64-104v3.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman64-104v3/afmcman64-104v3.pdf"
+    },
+    {
+        "file": "afmcman64-104v4.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcman64-104v4/afmcman64-104v4.pdf"
+    },
+    {
+        "file": "afmcmd4-422.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcmd4-422/afmcmd4-422.pdf"
+    },
+    {
+        "file": "afmcmd401.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcmd401/afmcmd401.pdf"
+    },
+    {
+        "file": "afmcmd402.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcmd402/afmcmd402.pdf"
+    },
+    {
+        "file": "afmcmd404.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcmd404/afmcmd404.pdf"
+    },
+    {
+        "file": "afmcmd406.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcmd406/afmcmd406.pdf"
+    },
+    {
+        "file": "afmcmd411.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcmd411/afmcmd411.pdf"
+    },
+    {
+        "file": "afmcmd417.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcmd417/afmcmd417.pdf"
+    },
+    {
+        "file": "afmcmd420.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcmd420/afmcmd420.pdf"
+    },
+    {
+        "file": "afmcmd421.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcmd421/afmcmd421.pdf"
+    },
+    {
+        "file": "afmcpam91-201.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/afmcpam91-201/afmcpam91-201.pdf"
+    },
+    {
+        "file": "dafi10-401_afmcsup_afmcgm2024-01.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi10-401_afmcsup_afmcgm2024-01/dafi10-401_afmcsup_afmcgm2024-01.pdf"
+    },
+    {
+        "file": "dafi11-209_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi11-209_afmcsup/dafi11-209_afmcsup.pdf"
+    },
+    {
+        "file": "dafi13-504_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi13-504_afmcsup/dafi13-504_afmcsup.pdf"
+    },
+    {
+        "file": "dafi20-112_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi20-112_afmcsup/dafi20-112_afmcsup.pdf"
+    },
+    {
+        "file": "dafi21-101_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi21-101_afmcsup/dafi21-101_afmcsup.pdf"
+    },
+    {
+        "file": "dafi21-101_afmcsup_add_c.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi21-101_afmcsup_add_c/dafi21-101_afmcsup_add_c.pdf"
+    },
+    {
+        "file": "dafi21-101_afmcsup_add_d.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi21-101_afmcsup_add_d/dafi21-101_afmcsup_add_d.pdf"
+    },
+    {
+        "file": "dafi21-103_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi21-103_afmcsup/dafi21-103_afmcsup.pdf"
+    },
+    {
+        "file": "dafi36-147_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi36-147_afmcsup/dafi36-147_afmcsup.pdf"
+    },
+    {
+        "file": "dafi51-1101_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi51-1101_afmcsup/dafi51-1101_afmcsup.pdf"
+    },
+    {
+        "file": "dafi63-140_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi63-140_afmcsup/dafi63-140_afmcsup.pdf"
+    },
+    {
+        "file": "dafi90-302_afmcsup.docx.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi90-302_afmcsup/dafi90-302_afmcsup.docx.pdf"
+    },
+    {
+        "file": "dafi91-101_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi91-101_afmcsup/dafi91-101_afmcsup.pdf"
+    },
+    {
+        "file": "dafi91-202_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi91-202_afmcsup/dafi91-202_afmcsup.pdf"
+    },
+    {
+        "file": "dafi91-204_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafi91-204_afmcsup/dafi91-204_afmcsup.pdf"
+    },
+    {
+        "file": "dafman11-401_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafman11-401_afmcsup/dafman11-401_afmcsup.pdf"
+    },
+    {
+        "file": "dafman16-201_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafman16-201_afmcsup/dafman16-201_afmcsup.pdf"
+    },
+    {
+        "file": "dafman21-201_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dafman21-201_afmcsup/dafman21-201_afmcsup.pdf"
+    },
+    {
+        "file": "desr6055.09_dafman91-201_afmcsup_afmcgm2024-01.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/desr6055.09_dafman91-201_afmcsup_afmcgm2024-01/desr6055.09_dafman91-201_afmcsup_afmcgm2024-01.pdf"
+    },
+    {
+        "file": "dodi5000.89_dafi99-103_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dodi5000.89_dafi99-103_afmcsup/dodi5000.89_dafi99-103_afmcsup.pdf"
+    },
+    {
+        "file": "releasability_statement.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dodio-2000.16v1_dafi31-145-o_afmcsup/releasability_statement.pdf"
+    },
+    {
+        "file": "for_official_use_only.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dodm5200.08v3_afman31-101v3_afmcsup-0/for_official_use_only.pdf"
+    },
+    {
+        "file": "dodm5220.22v2_afman16-1406v2_afmcsup.pdf",
+        "url": "https://static.e-publishing.af.mil/production/1/afmc/publication/dodm5220.22v2_afman16-1406v2_afmcsup/dodm5220.22v2_afman16-1406v2_afmcsup.pdf"
+    }
+]

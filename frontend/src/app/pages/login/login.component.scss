@@ -99,11 +99,14 @@ rux-input {
   padding: 1rem;
   flex-grow: 1; /* Allow input to grow and fill available space */
 }
+
+
 :host ::ng-deep {
 
   .button-outline button{
     background-color:transparent!important;
   }
+
 
   .logo img{
     max-width:14rem!important;

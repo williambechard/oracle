@@ -14,13 +14,18 @@
 }
 
 .ref-label{
-  font-size: 1.75rem
+  font-size: 1.75rem;
+  @media (max-width: 600px) {
+    font-size: .75rem;
+  }
 }
 
 .ref-content{
   font-size:1.25rem;
   background-color: #080c11;
-;
+  @media (max-width: 600px) {
+    font-size: .75rem;
+  }
 }
 
 ion-accordion {

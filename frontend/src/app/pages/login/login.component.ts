@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 import {ApiService} from '../../services/api/api.service';
 import {AutoFocus} from "primeng/autofocus";
 import {Keyboard} from "@capacitor/keyboard";
+import {JsonFilesService} from "../../services/url-lookup.service";
+import {Platform} from "@angular/cdk/platform";
 
 @Component({
   selector: 'app-login',
@@ -32,14 +34,20 @@ export class LoginComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
   keyboardVisible: boolean = false;
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router, private urlLookUp : JsonFilesService, private platform :Platform ) { }
 
   ngOnInit() {
-    // Listen for keyboard show event
-    Keyboard.addListener('keyboardWillShow', this.onKeyboardWillShow.bind(this));
-    // Listen for keyboard hide event
-    Keyboard.addListener('keyboardWillHide', this.onKeyboardWillHide.bind(this));
 
+    this.urlLookUp.loadJsonFiles().subscribe((response: any) => {
+      console.log('response:', response);
+    });
+
+    if(this.platform.IOS || this.platform.ANDROID) {
+      // Listen for keyboard show event
+      Keyboard.addListener('keyboardWillShow', this.onKeyboardWillShow.bind(this));
+      // Listen for keyboard hide event
+      Keyboard.addListener('keyboardWillHide', this.onKeyboardWillHide.bind(this));
+    }
     //determiine if emial and api-key are in local storaage
     const email = localStorage ? localStorage.getItem('email') : null;
     const apiKey = localStorage ? localStorage.getItem('api-key') : null;
@@ -66,8 +74,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // Clean up the event listeners to prevent memory leaks
-    Keyboard.removeAllListeners();
+    if(this.platform.IOS || this.platform.ANDROID) {
+      // Clean up the event listeners to prevent memory leaks
+      Keyboard.removeAllListeners();
+    }
   }
 
   login() {

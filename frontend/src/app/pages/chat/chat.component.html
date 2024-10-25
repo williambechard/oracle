@@ -1,5 +1,6 @@
+
 <div class="background-image full-height center-content">
-  <app-options-button class="options-area" />
+    <app-options-button class="options-area" />
   <div #scrollableChat class="content scrollable-chat">
     <app-chat-box *ngFor="let chat of chats" class="chat-box-container" [message]="chat.message" [isUser]="chat.isUser" [containsUrl]="chat.containsUrl" [url]="chat.url" [references]="chat.references"></app-chat-box>
     <div *ngIf="isLoading" class="progress-bar-area">

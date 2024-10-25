@@ -10,7 +10,7 @@
  */
 
 
-
+@import "@ionic/angular/css/ionic.bundle.css";
 @import "primeng/resources/primeng.css";
 @import "@astrouxds/tokens/dist/css/index.css";
 @import "@astrouxds/tokens/dist/css/classes/typography.css";
@@ -131,7 +131,11 @@ ion-card-content{
     letter-spacing: var(--font-body-1-letter-spacing);
     line-height: var(--font-body-1-line-height);
 }
-input{
-  padding-top:1.5rem!important;
+:host {
+  .rux-input input {
+    padding-top: 1.5rem !important;
+    height: 1.5rem !important;
+  }
 }
+
 

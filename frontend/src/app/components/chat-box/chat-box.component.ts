@@ -22,6 +22,7 @@ export class ChatBoxComponent implements OnInit {
   referenceArray:Reference[]=[];
   referencesFormatted: string = '';
   messageFormatted: string = '';
+  messageURL: string = '';
 
   colors: string[] = [
     '#8A6DC1',
@@ -34,6 +35,14 @@ export class ChatBoxComponent implements OnInit {
 
   // Function to format message text so that when a number in [] is found, it is replaced with the matching reference link
   formatMessage = (input: string): string => {
+  const match = input.match(/https?:\/\/[^\s]+/g);
+  this.messageURL = match ? match.join(', ') : '';
+  console.log(
+    'messageURL',
+    this.messageURL
+  )
+
+
     const referencePattern = /\[(\d+(?:,\s*\d+)*)\]\./g;
     return input.replace(referencePattern, (match, refNums) => {
       return refNums.split(',').map((refNum :any) => {
@@ -65,10 +74,17 @@ export class ChatBoxComponent implements OnInit {
     });
   }
 
+
   showReference(){
     console.log('referenceArray', this.referenceArray);
   }
 
+  modifyURL(name: string): string {
+    // if messageURL contains name then return messageURL
+    if (this.messageURL.includes(name)) {
+      return this.messageURL;
+    }else return '';
+  }
 
   toggleReference(refNum: string): void {
     const refElement = document.getElementById(`ref-${refNum}`);

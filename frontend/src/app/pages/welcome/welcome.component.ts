@@ -17,13 +17,12 @@ export class WelcomeComponent implements OnInit {
 
   isLoggedIn: boolean = false;
 
-  constructor(private router: Router, private apiService: ApiService) {}
+  constructor(private router: Router, private apiService: ApiService ) {}
 
   ngOnInit() {
     this.apiService.isLoggedIn$.subscribe((isLoggedIn) => {
       this.isLoggedIn = isLoggedIn;
     });
-
   }
 
   continue() {
