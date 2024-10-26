@@ -23,6 +23,7 @@ export class ChatBoxComponent implements OnInit {
   referencesFormatted: string = '';
   messageFormatted: string = '';
   messageURL: string = '';
+  messageRef: number[] = [];
 
   colors: string[] = [
     '#8A6DC1',
@@ -37,31 +38,33 @@ export class ChatBoxComponent implements OnInit {
   formatMessage = (input: string): string => {
   const match = input.match(/https?:\/\/[^\s]+/g);
   this.messageURL = match ? match.join(', ') : '';
-  console.log(
-    'messageURL',
-    this.messageURL
-  )
+    console.log('messageURL', this.messageURL);
 
-
-    const referencePattern = /\[(\d+(?:,\s*\d+)*)\]\./g;
-    return input.replace(referencePattern, (match, refNums) => {
+    const referencePattern = /\[(\d+(?:,\s*\d+)*)\]/g;
+    let formattedMessage = input.replace(referencePattern, (match, refNums) => {
       return refNums.split(',').map((refNum :any) => {
         const trimmedRefNum = refNum.trim();
         const colorIndex = (parseInt(trimmedRefNum) - 1) % this.colors.length;
       const color = this.colors[colorIndex];
+        this.messageRef.push(parseInt(trimmedRefNum)); // Add ref number to this.messageRef
         return `<span class="reference-link" (click)="toggleReference('${trimmedRefNum}')" style="color: ${color};">[${trimmedRefNum}]</span>`;
-      }).join(', ') + '.<br><br>';
+      }).join(', ');
     });
+
+    // Replace \n\n with <br><br> for HTML rendering
+    formattedMessage = formattedMessage.replace(/\n\n/g, '<br><br>');
+
+    return formattedMessage;
   }
 
   // Function to process references and metadata
   formatReferences = (input: string): string => {
     const referencePattern = /\[(\d+)\](.+?)Metadata: \{"filename": "(.+?)", "page_number": (\d+)\}/g;
     this.referenceArray = [];
-    return input.replace(referencePattern, (match, refNum, content, filename, pageNumber) => {
+    let result = input.replace(referencePattern, (match, refNum, content, filename, pageNumber) => {
       const colorIndex = (parseInt(refNum) - 1) % this.colors.length;
       const color = this.colors[colorIndex];
-      this.referenceArray.push({ refNum, content, filename, pageNumber });
+      this.referenceArray.push({ refNum, content, filename, pageNumber, url: '' });
       return `
         <p class="ref-header" >
           <div class='ref-btn' (click)="toggleReference('${refNum}')" style="color: ${color}; display:inline-block; font-size:1.75rem">[${refNum}]</div>
@@ -72,6 +75,38 @@ export class ChatBoxComponent implements OnInit {
         </div>
       `;
     });
+
+    console.log('ref array before diff, if there is a diff', this.referenceArray);
+
+    if(this.referenceArray.length==0){
+      console.log('diff pattern');
+      // try again with different pattern
+      const referencePattern = /\[(\d+)\] Article Title: (.+?) - Link: (https:\/\/[^\s]+) - Article Description: (.+?)(?=\[\d+\]|$)/gs;
+      result = input.replace(referencePattern, (match, refNum, content, url, pageNumber) => {
+        const colorIndex = (parseInt(refNum) - 1) % this.colors.length;
+        const color = this.colors[colorIndex];
+        this.referenceArray.push({
+          refNum,
+          content: pageNumber,
+          filename: content,
+          pageNumber: "0",
+          url
+        });
+        return `
+        <p class="ref-header" >
+          <div class='ref-btn' (click)="toggleReference('${refNum}')" style="color: ${color}; display:inline-block; font-size:1.75rem">[${refNum}]</div>
+          <span  class="reference-link"  id="ref-summary-${refNum}" style="font-size:1.75rem">${content}, Page: 0</span>
+        </p>
+        <div id="ref-${refNum}" class="metadata" style="display: none;">
+          <p>${pageNumber.trim()}</p>
+        </div>
+      `;
+      });
+    }
+
+    console.log('ref array ', this.referenceArray);
+
+    return result;
   }
 
 
@@ -96,6 +131,7 @@ export class ChatBoxComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('this.references', this.references);
     this.referencesFormatted = this.sanitizer.bypassSecurityTrustHtml(
       this.formatReferences(this.references)
     ) as string;
@@ -105,8 +141,20 @@ export class ChatBoxComponent implements OnInit {
     ) as string;
 
     console.log('referenceArray', this.referenceArray);
+    console.log('referencesFormatted', this.referencesFormatted);
     console.log('containsUrl', this.containsUrl);
     console.log('url', this.url);
+    console.log('references', this.references);
+
+    // remove from refereceArray if refNum is not in messageRef
+    if (this.messageRef.length > 0) {
+      const oldRef = this.referenceArray;
+      this.referenceArray = this.referenceArray.filter(ref => this.messageRef.includes(parseInt(ref.refNum)));
+      if(this.referenceArray.length==0){
+        this.referenceArray=oldRef;
+      }
+    }
+
   }
 }
 
@@ -115,5 +163,6 @@ export interface Reference{
   refNum:string,
   content:string,
   filename:string,
+  url:string,
   pageNumber:string,
 }

@@ -16,12 +16,13 @@
 .progress-bar-area{
   padding-left:4rem;
   padding-right:4rem;
+  height:2rem;
 }
 
   //style the scroll bar so the gutter isnt visible
   /* width */
   ::-webkit-scrollbar {
-    width: 20px;
+    width: 1rem;
   }
 
   /* Track */

@@ -59,7 +59,6 @@ export class ChatComponent  implements OnInit {
     setTimeout(() => this.scrollToBottom(), 100);  // Scroll to bottom after DOM update
 
     this.apiService.ask({message:this.sanitizeMessage(this.message)}).subscribe((response: any) => {
-
       console.log('response:', response);
       this.isLoading=false;
       this.url = this.extractUrl(response.message);
@@ -68,7 +67,6 @@ export class ChatComponent  implements OnInit {
       // Ensure the UI has updated before scrolling
       this.cdr.detectChanges();  // Trigger change detection
       setTimeout(() => this.scrollToBottom(), 100);  // Scroll to bottom after DOM update
-
     });
 
     // clear input value
@@ -116,6 +114,10 @@ export class ChatComponent  implements OnInit {
 
   removeUrl(message: string): string {
     return message.replace(/\[.*?\]\(.*?\)/g, '');
+  }
+
+  activateMic() {
+
   }
 }
 

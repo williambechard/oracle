@@ -30,9 +30,8 @@ export class LlmComponent implements  OnInit{
   name:string="";
   @Input() visible: boolean=true;
   @Output() onCancel = new EventEmitter<void>();
-  selectedModel: string = 'gpt-3.5-turbo';
-  models = ["cohere", "mpt-7b-chat", "claude2", "claude-3-opus", "claude-3-sonnet", "llma3", "aws-bedrock-titan", "google-bison", "google-gemini-pro", "mistral-large", "openai_gpt",
-    "gpt4", "gpt4-32k", "gpt4-vision", "gpt35-16k", "gpt-gov", "gpt4-gov", "dall-e-2", "dall-e-3", "davinci"]
+  selectedModel: string = 'gpt';
+  models = []
 
   constructor(private apiService: ApiService, private settingsService : ChatSettingsService) {}
 
@@ -52,7 +51,10 @@ export class LlmComponent implements  OnInit{
       console.log('models', data);
     });
 
-    this.selectedModel = this.settingsService.getSetting('llm') || 'gpt-3.5-turbo';
+    const savedModel =  this.settingsService.getSetting('llm');
+    this.selectedModel = savedModel && this.models.includes(savedModel as never)
+      ? savedModel  //@ts-ignore
+      : this.models.find(model => model.includes('gpt')) || 'gpt';
   }
 
   saveSettings(){

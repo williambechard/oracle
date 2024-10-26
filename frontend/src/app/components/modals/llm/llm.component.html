@@ -1,16 +1,22 @@
 <div style="display: flex; flex-direction: column; justify-content: center;">
-  <rux-dialog id="dialog-with-slot" open="visible">
-    <span slot="header">LLM Selection</span>
-    <div style="display: flex; flex-direction: column;">
-      <rux-select label="Select LLM" input-id="1" label-id="1" name="default" size="small"  [(ngModel)]="selectedModel">
-        <rux-option value="gpt-3.5-turbo" selected="" label="gpt-3.5-turbo"></rux-option>
+  <rux-dialog id="dialog-with-slot" open="visible" role="dialog" aria-labelledby="dialog-header" aria-describedby="dialog-content">
+
+    <!-- Header with accessible label for dialog -->
+    <span slot="header" id="dialog-header">LLM Selection</span>
+
+    <div id="dialog-content" style="display: flex; flex-direction: column;">
+      <!-- Select with accessible label -->
+      <rux-select label="Select LLM" input-id="1" label-id="1" name="default" size="medium" [(ngModel)]="selectedModel" aria-labelledby="select-llm-label">
+        <span id="select-llm-label" class="sr-only">Select Language Model</span>
         <rux-option *ngFor="let opt of models" [value]="opt" [label]="opt"></rux-option>
       </rux-select>
     </div>
+
+    <!-- Footer buttons with accessible labels -->
     <div slot="footer" style="display: flex; justify-content: end; align-items: center;">
-      <div style="display:flex; gap: var(--spacing-2);">
-        <rux-button id="cancel" secondary="" (click)="onCancelBtn()">Cancel</rux-button>
-        <rux-button id="confirm" (click)="saveSettings()">Confirm</rux-button>
+      <div style="display: flex; gap: var(--spacing-2);">
+        <rux-button id="cancel" secondary="" (click)="onCancelBtn()" aria-label="Cancel Selection">Cancel</rux-button>
+        <rux-button id="confirm" (click)="saveSettings()" aria-label="Confirm Selection">Confirm</rux-button>
       </div>
     </div>
   </rux-dialog>

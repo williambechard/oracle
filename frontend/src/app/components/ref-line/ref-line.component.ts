@@ -5,6 +5,10 @@ import {NgClass, NgIf} from "@angular/common";
 import {SafeUrlPipe} from "../../pipes/SafeUrlPipe";
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import {JsonFilesService} from "../../services/url-lookup.service";
+import {NgxExtendedPdfViewerModule} from "ngx-extended-pdf-viewer";
+import {PdfJsViewerModule} from "ng2-pdfjs-viewer";
+import {DomSanitizer} from "@angular/platform-browser";
+import {Platform} from "@angular/cdk/platform";
 
 @Component({
   selector: 'app-ref-line',
@@ -15,7 +19,9 @@ import {JsonFilesService} from "../../services/url-lookup.service";
     NgClass,
     SafeUrlPipe,
     NgIf,
-    PdfViewerModule
+    PdfViewerModule,
+    NgxExtendedPdfViewerModule,
+    PdfJsViewerModule
   ],
   standalone: true
 })
@@ -31,10 +37,11 @@ export class RefLineComponent  implements OnInit {
   link1: string ='';
   link2: string ='';
   modContent:string='';
+  isMobile:boolean=false;
 
   validLink: number = -1;
 
-  constructor(private jsonService: JsonFilesService) { }
+  constructor(private jsonService: JsonFilesService, protected sanitizer: DomSanitizer, private platform :Platform) { }
 
   ngOnInit() {
     // construct pdfULR with refURL + '#toolbar=0&navpanes=0&page=' + pageNum | safeUrl
@@ -53,6 +60,7 @@ export class RefLineComponent  implements OnInit {
       this.refURL = `https://www.e-publishing.af.mil/Product-Index/#/?view=search&keyword=${this.reference.filename}&isObsolete=false&modID=449&tabID=131`
     }
 
+    this.isMobile = this.platform.IOS || this.platform.ANDROID;
 
   }
 
@@ -67,9 +75,9 @@ export class RefLineComponent  implements OnInit {
   }
 
   onPDFLoad(event: any) {
-    console.log('pdf loaded', event);
-    this.validPDF = true;
-    console.log('valid pdf ', this.validPDF);
+    //console.log('pdf loaded', event);
+   // this.validPDF = true;
+   // console.log('valid pdf ', this.validPDF);
   }
 
   onPDFLink1Load(event: Event) {
@@ -77,8 +85,18 @@ export class RefLineComponent  implements OnInit {
     this.validLink=1;
   }
 
+  onPdfError(event: any){
+    console.error('PDF loading error:', event);
+  }
+
   onPDFLink2Load(event: Event) {
     console.log('pdf link 2 loaded', event);
     this.validLink=2;
+  }
+
+  openLink(url: string, event: any): void {
+    event.stopPropagation();
+    event.preventDefault();
+    window.open(url, '_blank');
   }
 }
