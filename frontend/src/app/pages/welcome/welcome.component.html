@@ -1,0 +1,32 @@
+<div class="background-image full-height center-content" role="main" aria-labelledby="welcome-header">
+  <h2 id="welcome-header" class="visually-hidden">Welcome to Oracle</h2> <!-- Visually hidden heading for screen readers -->
+
+  <div class="content">
+    <div class="welcome-container">
+      <div class="welcome-card" tabindex="0" aria-labelledby="welcome-card-header">
+        <div class="top">
+          <div class="header-area">
+            <div class="header" id="welcome-card-header">Welcome to Oracle</div>
+          </div>
+          <div class="flex-grow-content content-area">
+            <div class="scrollable-content">
+              <p>Thank you for giving this app a try!</p>
+              <p>This software uses AI (AskSage) to attempt to answer USSF and USAF questions utilizing AFIs, AFMANS, Local Supplements, and various DoD Authoritative Publications.</p>
+              <p>The app will not only answer DoD related questions, but also provide easily verifiable references for further inquiry and verification.</p>
+              <br>
+              <span class="disclaimer">
+                <p>WARNING: The responses from this app should not be taken as authoritative truth. If in doubt, please continue to research the answer by other means.</p>
+                <p>This app is not affiliated with the Department of Defense or any of its branches.</p>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="button-area">
+          <rux-button style="flex-grow:1; width:100%" [size]="'large'" secondary="" (click)="moreInfo()" aria-label="Get more information about the app">More Information</rux-button>
+          <rux-button *ngIf="isLoggedIn" style="flex-grow:1; width:100%" [size]="'large'" (click)="continue()" aria-label="Continue to the next step">Continue</rux-button>
+          <rux-button *ngIf="!isLoggedIn" style="flex-grow:1; width:100%" [size]="'large'" (click)="back()" aria-label="Go back to the previous step">Back</rux-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

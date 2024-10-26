@@ -1,0 +1,24 @@
+<div class="chat-box-container">
+  <div class="icon-area" aria-label="Chat Icon"  role="img">
+    <p-image
+      [src]="isUser ? 'assets/logos/person.svg' : 'assets/logos/OracleLogo.svg'"
+      alt="chat-icon"
+      aria-hidden="true"
+    />
+  </div>
+  <ion-card class="chat-box" role="article">
+    <ion-card-content class="chat-box-outer">
+      <div class="message" [innerHTML]="messageFormatted" aria-live="polite" role="document">
+      </div>
+      <div>
+      </div>
+      <div *ngIf="references.length > 0" class="ref-area" aria-label="References" role="list">
+        <ion-accordion-group [multiple]="false" aria-label="Reference List" role="listitem">
+       <ng-container *ngFor="let reference of referenceArray">
+           <app-ref-line [reference]="reference" [refURL]="url" [pageNum]="reference.pageNumber"></app-ref-line>
+       </ng-container>
+        </ion-accordion-group>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>

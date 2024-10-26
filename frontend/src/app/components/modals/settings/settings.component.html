@@ -1,0 +1,60 @@
+<div style="display: flex; flex-direction: column; justify-content: center;">
+  <!-- Dialog with accessibility roles and labels -->
+  <rux-dialog
+    id="dialog-with-slot"
+    open="visible"
+    role="dialog"
+    aria-labelledby="dialog-header"
+    aria-describedby="dialog-content">
+
+    <!-- Header with accessible label for dialog -->
+    <span slot="header" id="dialog-header">LLM Settings</span>
+
+    <div id="dialog-content" style="display: flex; flex-direction: column; gap: 2rem;">
+      <!-- Accessible label for the temperature slider -->
+      <label for="axis">Temperature</label>
+      <rux-slider
+        id="axis"
+        [(ngModel)]="selectedTemp"
+        max="100"
+        min="0"
+        step="1"
+        value="50"
+        axis-labels="[0,25,50,75,100]"
+        [attr.aria-valuemin]="0"
+        [attr.aria-valuemax]="100"
+        [attr.aria-valuenow]="selectedTemp"
+      aria-labelledby="axis-label">
+      </rux-slider>
+
+      <!-- Label and switch for live results with aria controls -->
+      <div style="display: flex; flex-direction: row; justify-content: start; gap: 2rem;">
+        <label for="live">Live results</label>
+        <rux-switch
+          id="live"
+          aria-label="Enable live results"
+          [(ngModel)]="selectedLive">
+        </rux-switch>
+      </div>
+    </div>
+
+    <!-- Footer with accessible buttons -->
+    <div slot="footer" style="display: flex; justify-content: end; align-items: center;">
+      <div style="display: flex; gap: var(--spacing-2);">
+        <rux-button
+          id="cancel"
+          secondary
+          (click)="onCancelBtn()"
+          aria-label="Cancel LLM Settings">
+          Cancel
+        </rux-button>
+        <rux-button
+          id="confirm"
+          (click)="saveSettings()"
+          aria-label="Confirm LLM Settings">
+          Confirm
+        </rux-button>
+      </div>
+    </div>
+  </rux-dialog>
+</div>

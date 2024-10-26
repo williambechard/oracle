@@ -1,0 +1,19 @@
+<ion-fab slot="fixed" vertical="top" horizontal="end" aria-label="Options Menu" role="menu">
+  <ion-fab-button #closeOptions aria-label="Close Options">
+    <ion-icon name="settings-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="bottom" aria-label="Options List" role="menuitem">
+    <ion-fab-button (click)="onPressLLM($event)" aria-label="LLM Option">
+      <ion-icon  name="hardware-chip-outline" size="large"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="onPressSettings($event)" aria-label="Settings Option">
+      <ion-icon name="thermometer-outline" size="large"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="onPressPersona($event)" aria-label="Persona Option">
+      <ion-icon name="people-outline" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+<app-llm *ngIf="isLLMVisible" (onCancel)="isLLMVisible=false"></app-llm>
+<app-settings *ngIf="isSettingsVisible" (onCancel)="isSettingsVisible=false"></app-settings>
+<app-persona *ngIf="isPersonaVisible" (onCancel)="isPersonaVisible=false"></app-persona>

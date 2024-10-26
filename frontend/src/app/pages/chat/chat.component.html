@@ -1,0 +1,42 @@
+<div class="background-image full-height center-content" role="region" aria-labelledby="chat-region" tabindex="0">
+  <h2 id="chat-region" class="visually-hidden">Chat Area</h2>
+  <app-options-button class="options-area" aria-label="Options"></app-options-button>
+
+  <div #scrollableChat class="content scrollable-chat" aria-live="polite" aria-busy="isLoading">
+    <app-chat-box
+      *ngFor="let chat of chats"
+      class="chat-box-container"
+      [message]="chat.message"
+      [isUser]="chat.isUser"
+      [containsUrl]="chat.containsUrl"
+      [url]="chat.url"
+      [references]="chat.references">
+    </app-chat-box>
+
+    <div *ngIf="isLoading" class="progress-bar-area" aria-live="assertive">
+      <ion-progress-bar type="indeterminate" aria-label="Loading chat response"></ion-progress-bar>
+    </div>
+  </div>
+
+  <div class="bottom-area" role="form" aria-labelledby="chat-input-label">
+    <label id="chat-input-label" for="chat-input" class="visually-hidden">Chat Input</label> <!-- Visually hidden label -->
+
+    <rux-input
+      id="chat-input"
+      placeholder="Ask your military question..."
+      size="large"
+      style="flex-grow: 1; margin: 0 1rem; height: 100%;"
+      [(ngModel)]="message"
+      (keydown.enter)="submitChat(); $event.preventDefault();"
+      aria-required="true"
+    ></rux-input>
+
+    <p-button
+      icon="pi pi-send"
+      styleClass="p-button-rounded p-button-text"
+      (click)="submitChat()"
+      [rounded]="true"
+      aria-label="Send message">
+    </p-button>
+  </div>
+</div>

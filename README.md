@@ -55,7 +55,7 @@ Follow these steps to get the application up and running:
  
     The application will be available at `http://localhost:80` in your browser.
     Note that the application front end and the backend are both being served from the docker container
-    The backend is serving data from `http://localhost:5000` and the frontend is serving the application from `http://localhost:80`
+    The backend is serving data from `http://localhost:5001` and the frontend is serving the application from `http://localhost:80`
  
 5. **Stop the Application**
 
@@ -71,6 +71,10 @@ Follow these steps to get the application up and running:
 - **Android Studio**:  [Install Android Studio](https://developer.android.com/studio)
 - **Java SDK 21**: [Install Java SDK 21](https://www.oracle.com/java/technologies/downloads/#jdk21-windows)
 
+### Reminder you need to have the Docker up and running, so if you havn't already, run the below
+```bash
+    docker-compose up
+```
 
 ### Build Android App
 ```bash
