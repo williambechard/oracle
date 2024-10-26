@@ -1,12 +1,55 @@
-<ion-accordion value="first">
+<ion-accordion [value]="reference.refNum" [attr.aria-controls]="'accordion-content-' + reference.refNum">
   <ion-item slot="header" color="#080c11">
-    <ion-label class="ref-label"><span [ngClass]="'ref-' + reference.refNum">{{reference.refNum}}</span> : {{reference.filename}} , page {{reference.pageNumber}}</ion-label>
+    <ion-label class="ref-label">
+      <span [ngClass]="'ref-' + reference.refNum">{{reference.refNum}}</span> : {{reference.filename}}
+      <span *ngIf="reference.url==''">, page {{reference.pageNumber}}</span>
+    </ion-label>
   </ion-item>
-  <div class="ion-padding ref-content" slot="content">{{ reference.content }}
+
+  <!-- Content Area with Aria Labels -->
+  <div class="ion-padding ref-content" slot="content" [id]="'accordion-content-' + reference.refNum">
+    <div [innerHTML]="modContent"></div>
+    <!-- Read More Section -->
     <div class="link-to-content">
-      <span class="read-more-area" (click)="showPDF=!showPDF" >Read More</span>
-      <object *ngIf="showPDF" [data]="pdfURL + '#toolbar=0&navpanes=0&page=' + pageNum | safeUrl" type="application/pdf" width="100%" height="600px"  (load)="onPDFLoad($event)"></object>
-      <a class="read-more-area" *ngIf="!validPDF && showPDF" [href]="'https://www.e-publishing.af.mil/Product-Index/#/?view=search&keyword=' + reference.filename.replace('.pdf', '') + '&isObsolete=false' | safeUrl" target="_blank"> Open Browser to e-publishing.af.mil </a>
+      <ion-accordion-group [multiple]="false">
+        <ion-accordion class="read-more-area" (click)="showPDF = !showPDF" [attr.aria-controls]="'pdf-content-' + reference.refNum">
+          <ion-item slot="header" color="#080c11">
+            <ion-label class="ref-label">Read More</ion-label>
+          </ion-item>
+
+          <!-- PDF Display Area with Conditional Attributes -->
+          <div slot="content" [id]="'pdf-content-' + reference.refNum">
+            <!-- Display PDF when "Read More" is clicked -->
+            <ng-container *ngIf="reference.url==''">
+              <object *ngIf="showPDF && pdfFound && !isMobile"
+                      [data]="refURL + '#toolbar=0&navpanes=0&page=' + pageNum | safeUrl"
+                      type="application/pdf"
+                      width="100%" height="600px"
+                      (load)="onPDFLoad($event)"
+                      [attr.aria-label]="'PDF Viewer for ' + reference.filename">
+              </object>
+
+              <iframe *ngIf="showPDF && pdfFound && isMobile"
+                      [src]="sanitizer.bypassSecurityTrustResourceUrl('https://docs.google.com/viewer?url=' + refURL + '&embedded=true')"
+                      width="100%" height="500px"
+                      [attr.aria-label]="'Google Docs PDF Viewer for ' + reference.filename">
+              </iframe>
+
+              <!-- Fallback link if PDF is not valid -->
+              <a *ngIf="showPDF && !pdfFound" class="read-more-area"
+                 [href]="'https://www.e-publishing.af.mil/Product-Index/#/?view=search&keyword=' + reference.filename.replace('.pdf', '') + '&isObsolete=false' | safeUrl"
+                 target="_blank">Open Browser to e-publishing.af.mil</a>
+            </ng-container>
+
+            <ng-container *ngIf="reference.url !== ''">
+              <a *ngIf="showPDF" class="read-more-area"
+                 [href]="reference.url"
+                 target="_blank"
+                 (click)="openLink(reference.url, $event)">Open link</a>
+            </ng-container>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
     </div>
   </div>
 </ion-accordion>

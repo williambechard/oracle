@@ -1,6 +1,5 @@
 .content {
     width: 100%;
-    max-width: 100rem;
     height:100vh;
     padding-bottom: 8rem;
     gap:1rem;
@@ -12,18 +11,18 @@
   flex-direction:row;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
 }
 
 .progress-bar-area{
   padding-left:4rem;
   padding-right:4rem;
+  height:2rem;
 }
 
   //style the scroll bar so the gutter isnt visible
   /* width */
   ::-webkit-scrollbar {
-    width: 20px;
+    width: 1rem;
   }
 
   /* Track */
@@ -43,9 +42,7 @@
   }
 
   .center-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
   }
 
   .header-area{
@@ -64,6 +61,8 @@
 
   .content-area{
       padding:1rem;
+      padding-left:.5rem;
+      padding-right:.5rem;
       max-height: 74vh;
       overflow-y: auto;
   }

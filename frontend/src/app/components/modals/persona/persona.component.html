@@ -1,18 +1,36 @@
 <div style="display: flex; flex-direction: column; justify-content: center;">
-  <rux-dialog id="dialog-with-slot" open="visible">
-    <span slot="header">Persona</span>
-    <div style="display: flex; flex-direction: column; gap:2rem">
-      <label>Select a Persona Context</label>
+  <!-- Dialog with accessibility roles and labels -->
+  <rux-dialog
+    id="dialog-with-slot"
+    open="visible"
+    role="dialog"
+    aria-labelledby="dialog-header"
+    aria-describedby="dialog-content">
+
+    <!-- Header with accessible label for dialog -->
+    <span slot="header" id="dialog-header">Persona</span>
+
+    <div id="dialog-content" style="display: flex; flex-direction: column; gap: 2rem;">
+      <!-- Accessible label for carousel -->
+      <label for="persona-carousel" aria-label="Select a Persona Context">Select a Persona Context</label>
+
+      <!-- Carousel component with appropriate roles and labels -->
       <p-carousel
+        id="persona-carousel"
         [value]="personaContexts"
         [numVisible]="1"
         [numScroll]="1"
         [circular]="false"
         (onPage)="onPage($event)"
         [page]="currentPage"
-    >
+        aria-roledescription="carousel"
+        aria-label="Persona Context Options">
+
         <ng-template let-product pTemplate="item">
-          <div class="border-1 surface-border border-round m-2 p-3">
+          <div
+            class="border-1 surface-border border-round m-2 p-3"
+            role="group"
+            aria-roledescription="carousel item">
             <div class="label-area">
               {{ product }}
             </div>
@@ -20,10 +38,23 @@
         </ng-template>
       </p-carousel>
     </div>
+
+    <!-- Footer with accessible buttons -->
     <div slot="footer" style="display: flex; justify-content: end; align-items: center;">
-      <div style="display:flex; gap: var(--spacing-2);">
-        <rux-button id="cancel" secondary="" (click)="onCancelBtn()">Cancel</rux-button>
-        <rux-button id="confirm" (click)="saveSettings()">Confirm</rux-button>
+      <div style="display: flex; gap: var(--spacing-2);">
+        <rux-button
+          id="cancel"
+          secondary
+          (click)="onCancelBtn()"
+          aria-label="Cancel Selection">
+          Cancel
+        </rux-button>
+        <rux-button
+          id="confirm"
+          (click)="saveSettings()"
+          aria-label="Confirm Selection">
+          Confirm
+        </rux-button>
       </div>
     </div>
   </rux-dialog>

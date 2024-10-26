@@ -10,7 +10,7 @@
  */
 
 
-
+@import "@ionic/angular/css/ionic.bundle.css";
 @import "primeng/resources/primeng.css";
 @import "@astrouxds/tokens/dist/css/index.css";
 @import "@astrouxds/tokens/dist/css/classes/typography.css";
@@ -131,7 +131,21 @@ ion-card-content{
     letter-spacing: var(--font-body-1-letter-spacing);
     line-height: var(--font-body-1-line-height);
 }
-input{
-  padding-top:1.5rem!important;
+
+.visually-hidden {
+  position: absolute; /* Take the element out of the normal flow */
+  width: 1px;        /* Set the width to a small size */
+  height: 1px;       /* Set the height to a small size */
+  margin: -1px;      /* Adjust margins to further ensure it's out of view */
+  padding: 0;        /* Remove any padding */
+  overflow: hidden;   /* Hide overflow */
+  clip: rect(0, 0, 0, 0); /* Clip the element to a rectangle of zero size */
+  border: 0;         /* Remove any borders */
+  white-space: nowrap; /* Prevent line breaks */
 }
 
+
+rux-input::part(input), rux-select::part(select), rux-select::part(option) {
+  padding: 0.5em;
+  line-height: 1.5rem;
+}

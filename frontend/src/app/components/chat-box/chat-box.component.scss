@@ -5,10 +5,14 @@
      min-height: 4rem;
      border-radius: 10px;
      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.85);
+     display:flex;
+     background-color: var(--color-background-base-default);
+     border-width:1px;
+     border-color: red;
    }
 
 .chat-box-container{
-
+  width:100%;
 }
 
 .message {
@@ -17,11 +21,18 @@
   max-width: 100%;
   text-align: left;
   font-size: 1.75rem;
+
+  @media (max-width: 600px) {
+    font-size: .75rem;
+  }
   color: var(--color-text-primary);
 }
 
 .ref-area{
   margin-top:1rem;
+  @media (max-width: 600px) {
+    font-size: .75rem;
+  }
 }
 
 .icon-area {
@@ -30,6 +41,16 @@
   transform: translate(.5rem, 4rem);
   position: relative;
   z-index:1;
+
+  @media (max-width: 600px) {
+    width: 2rem;
+    height: 2rem;
+    transform:translate(0.5rem, 3rem);
+  }
+}
+
+.chat-box-outer{
+  width: 100%;
 }
 
 .reference-link {
@@ -55,5 +76,8 @@
 
 p.ref-header{
   font-size:1.75rem!important;
+  @media (max-width: 600px) {
+    font-size: .75rem;
+  }
 }
 

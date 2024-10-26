@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {IonFab, IonFabButton, IonicModule} from "@ionic/angular";
+import { IonFabButton, IonicModule} from "@ionic/angular";
 import {AstroComponentsModule} from "@astrouxds/angular";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {DialogModule} from "primeng/dialog";
@@ -7,8 +7,16 @@ import {NgIf} from "@angular/common";
 import {LlmComponent} from "../modals/llm/llm.component";
 import {SettingsComponent} from "../modals/settings/settings.component";
 import {PersonaComponent} from "../modals/persona/persona.component";
-import {ChatSettingsService} from "../../services/chat-settings.service";
 
+import {addIcons} from "ionicons";
+import {
+  exit,
+  hardwareChipOutline,
+  informationCircleOutline,
+  peopleOutline,
+  settingsOutline,
+  thermometerOutline
+} from "ionicons/icons";
 
 @Component({
   selector: 'app-options-button',
@@ -21,7 +29,7 @@ import {ChatSettingsService} from "../../services/chat-settings.service";
     NgIf,
     LlmComponent,
     SettingsComponent,
-    PersonaComponent
+    PersonaComponent,
   ],
   animations: [
     trigger('animation', [
@@ -29,14 +37,17 @@ import {ChatSettingsService} from "../../services/chat-settings.service";
       transition('void => start', [style({ opacity: 0 }), animate('300ms')]),
     ])
   ],
-  standalone: true
+  standalone: true,
+
 })
 export class OptionsButtonComponent  implements OnInit {
   isLLMVisible: boolean = false;
   isSettingsVisible: boolean = false;
   isPersonaVisible: boolean = false;
   @ViewChild('closeOptions', { static: false }) closeOptionsButton: IonFabButton | undefined;
-  constructor() {}
+  constructor() {
+    addIcons({  exit, thermometerOutline, peopleOutline, hardwareChipOutline, settingsOutline });
+  }
 
   ngOnInit() {}
 
@@ -72,5 +83,5 @@ export class OptionsButtonComponent  implements OnInit {
   }
 
 
-
+  protected readonly settingsOutline = settingsOutline;
 }

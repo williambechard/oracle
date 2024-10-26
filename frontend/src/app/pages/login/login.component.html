@@ -1,51 +1,83 @@
-<ion-header *ngIf="isLoading">
-    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+<ion-header *ngIf="isLoading" role="banner">
+  <ion-progress-bar type="indeterminate" aria-label="Loading progress"></ion-progress-bar>
 </ion-header>
-<div class="background-image full-height">
-        <div class="content">
-          <div class="top-outer">
-            <div style="padding-top:2rem; padding-bottom:2rem" class="inner-content-top">
-              <p-image src="assets/logos/OracleLogo.png" class="logo"></p-image>
-            </div>
-              <div class="background-strip">
-                <ion-card class="login-card inner-content-middle">
-                  <ion-card-header>
-                    <ion-card-title class="single-line" style="letter-spacing:.35rem!important; color:grey!important; font-size:1rem!important; font-family:Sharp Sans, Trebuchet,serif">UNITED STATES</ion-card-title>
-                    <ion-card-title class="single-line" style="letter-spacing:.5rem!important; color:grey!important; font-size:2rem!important; font-family:Sharp Sans, Trebuche, serif">SPACE FORCE</ion-card-title>
-                    <ion-card-title class="single-line" style="font-size:2rem!important; font-family: sans-serif; font-weight: bolder; color:var(--color-text-primary)">ORACLE</ion-card-title>
-                  </ion-card-header>
-                  <ion-card-content>
-                    <rux-input
-                      label="EMAIL"
-                      [type]="'text'"
-                      size="medium"
-                      [(ngModel)]="email"
-                      (ngModelChange)="clearErrorMessage()"
-                      (focus)="onFocus($event)"
-                    >
-                    </rux-input>
-                    <rux-input
-                      label="API Key"
-                      [type]="'password'"
-                      size="medium"
-                      [(ngModel)]="apiKey"
-                      (ngModelChange)="clearErrorMessage()">
-                    </rux-input>
-                    <div class="message-area" [ngClass]="{'hidden': !isLoading && !errorMessage}">
-                      <div *ngIf="errorMessage && !isLoading" class="error-message">
-                        {{ errorMessage }}
-                      </div>
-                    </div>
-                    <div class="button-area">
-                      <rux-button style="flex-grow:1; width:100%" [size]="'large'" secondary="" (click)="register()">Register</rux-button>
-                      <rux-button style="flex-grow:1; width:100%" [size]="'large'" (click)="login()" [disabled]="!email || !apiKey || isLoading">Login</rux-button>
-                    </div>
-                  </ion-card-content>
-                </ion-card>
+
+<div class="background-image full-height" role="main" aria-labelledby="login-header">
+  <h2 id="login-header" class="visually-hidden">User Login</h2>
+
+  <div class="content">
+    <div class="top-outer">
+      <div style="padding-top:2rem; padding-bottom:2rem" class="inner-content-top">
+        <p-image src="assets/logos/OracleLogo.png" class="logo" alt="Oracle Logo"></p-image>
+      </div>
+      <div class="background-strip">
+        <ion-card class="login-card inner-content-middle" aria-labelledby="card-title" tabindex="0">
+          <ion-card-header>
+            <ion-card-title class="single-line" style="letter-spacing:.35rem!important; color:grey!important; font-size:1rem!important; font-family:Sharp Sans, Trebuchet,serif" id="card-title">UNITED STATES</ion-card-title>
+            <ion-card-title class="single-line" style="letter-spacing:.5rem!important; color:grey!important; font-size:2rem!important; font-family:Sharp Sans, Trebuche, serif">SPACE FORCE</ion-card-title>
+            <ion-card-title class="single-line" style="font-size:2rem!important; font-family: sans-serif; font-weight: bolder; color:var(--color-text-primary)">ORACLE</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <rux-input
+              label="Email"
+              [type]="'text'"
+              size="medium"
+              [(ngModel)]="email"
+              (ngModelChange)="clearErrorMessage()"
+              (focus)="onFocus($event)"
+              aria-required="true"
+            aria-describedby="email-help"
+            >
+            </rux-input>
+            <p id="email-help" class="visually-hidden">Please enter your email address.</p>
+
+            <rux-input
+              label="API Key"
+              [type]="'password'"
+              size="medium"
+              [(ngModel)]="apiKey"
+              (ngModelChange)="clearErrorMessage()"
+              aria-required="true"
+            aria-describedby="apikey-help"
+            >
+            </rux-input>
+            <p id="apikey-help" class="visually-hidden">Please enter your API key.</p>
+
+            <div class="message-area" [ngClass]="{'hidden': !isLoading && !errorMessage}">
+              <div *ngIf="errorMessage && !isLoading" class="error-message" role="alert" aria-live="assertive">
+                {{ errorMessage }}
               </div>
-          </div>
-          <div *ngIf="!keyboardVisible" class="login-icon-area inner-content-bottom">
-            <p-button  icon="pi pi-question-circle"  [rounded]="true" [outlined]="true" (click)="info()"/>
-          </div>
-        </div>
+            </div>
+            <div class="button-area">
+              <rux-button
+                style="flex-grow:1; width:100%"
+                [size]="'large'"
+                secondary
+                (click)="register()"
+                aria-label="Register new account">
+                Register
+              </rux-button>
+              <rux-button
+                style="flex-grow:1; width:100%"
+                [size]="'large'"
+                (click)="login()"
+                [disabled]="!email || !apiKey || isLoading"
+                aria-label="Login to account">
+                Login
+              </rux-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+    <div *ngIf="!keyboardVisible" class="login-icon-area inner-content-bottom">
+      <p-button
+        icon="pi pi-question-circle"
+        [rounded]="true"
+        [outlined]="true"
+        (click)="info()"
+        aria-label="Help">
+      </p-button>
+    </div>
+  </div>
 </div>
