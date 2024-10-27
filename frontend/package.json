@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --project=oracle --host=0.0.0.0 --disable-host-check --poll=2000",
+    "nada": "echo 'nada'",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
