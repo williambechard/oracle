@@ -66,8 +66,8 @@
                 }
               ],
               "outputHashing": "all",
-              "optimization": true,
-              "sourceMap": false,
+              "optimization": false,
+              "sourceMap": false
             },
             "development": {
               "buildOptimizer": false,
